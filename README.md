@@ -11,6 +11,8 @@ CPUT HIV/AIDS Unit Mobile Application (CHAUMA)
 <li>Simone Temmers      <i>- Technical documentation / Designer</i></li>
 </ul>
 
+<hr>
+
 The objective of this project is to design and develop a mobile application that will enable the HIV/AIDS unit of CPUT to 
 - Share information
 - Recruit and manage peer educator
