@@ -50,3 +50,12 @@ Provide an online peer educator application form, to make it easy for the users 
 - Peer Educators User Account
 The application will provide the coordinators to set up and manage peer educator’s user accounts on the application. 
 The user accounts will allow the coordinators to communicate tasks to the individual users account and allow the peer educators to verify their ability to do such a task.
+
+<hr>
+
+<p>These are the main colour that will be used throughout this Application as they are the colours for CPUT. These colours were obtained from the CPUT official website <a href="http://www.cput.ac.za/">http://www.cput.ac.za/</a></p>
+
+<img src="Wireframes/firstColour.png" width="50" height="25">
+<img src="Wireframes/secondColour.png" width="50" height="25">
+<img src="Wireframes/thirdColour.png" width="50" height="25">
+<img src="Wireframes/fourthColour.png" width="50" height="25">
