@@ -33,6 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ContactScreen" />
+        <activity android:name=".AskQuestionScreen"></activity>
     </application>
 
 </manifest>
