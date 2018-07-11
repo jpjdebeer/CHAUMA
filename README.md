@@ -8,7 +8,7 @@ CPUT HIV/AIDS Unit Mobile Application (CHAUMA)
 <li>Shaun Donnely       <i>- Programmer</i></li>
 <li>Nelson Mpyana       <i>- Programmer</i></li>
 <li>Kelvin Van Sittert  <i>- Programmer</i></li>
-<li>Simone Temmers      <i>- Technical documentation / Designer</i></li>
+<li>Simone Temmers      <i>- Technical documentation / UX Designer</i></li>
 </ul>
 
 <hr>
