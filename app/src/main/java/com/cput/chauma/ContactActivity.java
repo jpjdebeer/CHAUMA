@@ -1,7 +1,9 @@
-package com.example.shaun.chauma;
+package com.cput.chauma;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.shaun.chauma.R;
 
 /**
  * Display all the contact details for all CPUT HIV/AIDS Units from different campuses

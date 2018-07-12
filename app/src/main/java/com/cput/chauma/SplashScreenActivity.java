@@ -1,7 +1,9 @@
-package com.example.shaun.chauma;
+package com.cput.chauma;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.shaun.chauma.R;
 
 /**
  * This is the screen that will be displayed when the user

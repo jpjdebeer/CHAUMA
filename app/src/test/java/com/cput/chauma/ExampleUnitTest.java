@@ -1,4 +1,4 @@
-package com.example.shaun.chauma;
+package com.cput.chauma;
 
 import org.junit.Test;
 

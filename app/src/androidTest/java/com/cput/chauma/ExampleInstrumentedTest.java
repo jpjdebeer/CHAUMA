@@ -1,4 +1,4 @@
-package com.example.shaun.chauma;
+package com.cput.chauma;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -9,32 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
+        <activity android:name="com.cput.chauma.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".BrochureActivity" />
-        <activity android:name=".ClinicActivity" />
-        <activity android:name=".EditAccountActivity" />
-        <activity android:name=".EventActivity" />
-        <activity android:name=".FrequentlyAskedQuestionActivity" />
-        <activity android:name=".GetInvolveActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".PeerEducatorActivity" />
-        <activity android:name=".SetEventActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name="com.cput.chauma.AdminActivity" />
+        <activity android:name="com.cput.chauma.BrochureActivity" />
+        <activity android:name="com.cput.chauma.ClinicActivity" />
+        <activity android:name="com.cput.chauma.EditAccountActivity" />
+        <activity android:name="com.cput.chauma.EventActivity" />
+        <activity android:name="com.cput.chauma.FrequentlyAskedQuestionActivity" />
+        <activity android:name="com.cput.chauma.GetInvolveActivity" />
+        <activity android:name="com.cput.chauma.LoginActivity" />
+        <activity android:name="com.cput.chauma.PeerEducatorActivity" />
+        <activity android:name="com.cput.chauma.SetEventActivity" />
+        <activity android:name="com.cput.chauma.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContactActivity" />
-        <activity android:name=".AskQuestionActivity"></activity>
+        <activity android:name="com.cput.chauma.ContactActivity" />
+        <activity android:name="com.cput.chauma.AskQuestionActivity"></activity>
     </application>
 
 </manifest>

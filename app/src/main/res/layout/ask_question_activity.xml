@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AskQuestionActivity">
+    tools:context="com.cput.chauma.AskQuestionActivity">
 
 </android.support.constraint.ConstraintLayout>

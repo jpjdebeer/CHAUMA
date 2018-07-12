@@ -1,20 +1,22 @@
-package com.example.shaun.chauma;
+package com.cput.chauma;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.shaun.chauma.R;
+
 /**
- * Frequently Asked Questions
+ * Display the CPUT HIV/AIDS Unit PDF magazine
  *
- * @author  Kelvin Van Sittert
+ * @author
  * @version 1.0
  * @since   2018-01-31
  */
-public class FrequentlyAskedQuestionActivity extends AppCompatActivity {
+public class BrochureActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.frequently_asked_question);
+        setContentView(R.layout.brochure_activity);
     }
 }
