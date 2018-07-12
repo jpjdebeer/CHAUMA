@@ -4,17 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
- * Edit accounts for the registered peer educators
+ * Frequently Asked Questions
  *
- * @author  Nelson Mpyana
+ * @author  Kelvin Van Sittert
  * @version 1.0
  * @since   2018-01-31
  */
-public class EditAccountScreen extends AppCompatActivity {
+public class FrequentlyAskedQuestionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_account_screen);
+        setContentView(R.layout.frequently_asked_question);
     }
 }

@@ -11,11 +11,11 @@ import android.os.Bundle;
  * @version 1.0
  * @since   2018-01-31
  */
-public class PeerEducatorScreen extends AppCompatActivity {
+public class PeerEducatorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_peer_educator_screen);
+        setContentView(R.layout.peer_educator_activity);
     }
 }

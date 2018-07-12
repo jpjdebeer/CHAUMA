@@ -10,11 +10,11 @@ import android.os.Bundle;
  * @version 1.0
  * @since   2018-01-31
  */
-public class SetEventScreen extends AppCompatActivity {
+public class SetEventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_event_screen);
+        setContentView(R.layout.set_event_activity);
     }
 }

@@ -9,32 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeScreen">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdminScreen" />
-        <activity android:name=".BrochureScreen" />
-        <activity android:name=".ClinicScreen" />
-        <activity android:name=".EditAccountScreen" />
-        <activity android:name=".EventScreen" />
-        <activity android:name=".FAQ" />
-        <activity android:name=".GetInvolveScreen" />
-        <activity android:name=".LoginScreen" />
-        <activity android:name=".PeerEducatorScreen" />
-        <activity android:name=".SetEventScreen" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".BrochureActivity" />
+        <activity android:name=".ClinicActivity" />
+        <activity android:name=".EditAccountActivity" />
+        <activity android:name=".EventActivity" />
+        <activity android:name=".FrequentlyAskedQuestionActivity" />
+        <activity android:name=".GetInvolveActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".PeerEducatorActivity" />
+        <activity android:name=".SetEventActivity" />
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContactScreen" />
-        <activity android:name=".AskQuestionScreen"></activity>
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".AskQuestionActivity"></activity>
     </application>
 
 </manifest>

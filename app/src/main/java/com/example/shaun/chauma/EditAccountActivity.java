@@ -4,18 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
- * Application form for individuals to apply in order to become
- * volunteer peer educators.
+ * Edit accounts for the registered peer educators
  *
- * @author  Kelvin Van Sittert
+ * @author  Nelson Mpyana
  * @version 1.0
  * @since   2018-01-31
  */
-public class GetInvolveScreen extends AppCompatActivity {
+public class EditAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_involve_screen);
+        setContentView(R.layout.edit_account_activity);
     }
 }

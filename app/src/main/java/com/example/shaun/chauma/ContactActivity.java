@@ -4,17 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
- * Display the CPUT HIV/AIDS Unit PDF magazine
+ * Display all the contact details for all CPUT HIV/AIDS Units from different campuses
  *
- * @author
+ * @author  Shaun Donnely
  * @version 1.0
  * @since   2018-01-31
  */
-public class BrochureScreen extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_brochure_screen);
+        setContentView(R.layout.contact_activity);
     }
 }

@@ -4,17 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
- * Display all the contact details for all CPUT HIV/AIDS Units from different campuses
+ * This is the screen that is only accessable by the admin person.
+ * This will allow the admin to edit accounts and set events.
  *
- * @author  Shaun Donnely
+ * @author  Simone Temmers
  * @version 1.0
  * @since   2018-01-31
  */
-public class ContactScreen extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_screen);
+        setContentView(R.layout.admin_activity);
     }
 }
