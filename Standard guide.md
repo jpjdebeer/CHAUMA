@@ -6,12 +6,12 @@ These are the basic rules/standards we will adhere to. This will also help us to
 <h3>1. Naming convention</h3>
 <li>N.B. classes, methods, variables and constants must be descriptive and unambiguous</li>
 <li>N.B. constant variable must be uppercase</li>
-<ul><li>e.g. the days in the year:	int final DAYS_IN_YEAR = 365</li></ul>
+- e.g. the days in the year:	int final DAYS_IN_YEAR = 365
 <ul>Pascal casing for classes
 <li>Capitalize the first letter of each word in a class name</li>
 <li>e.g. First letter of every word is uppercase</li>
 <li>ComputerArea, Math, and JOptionPane</li>
-<ul>Camel casing methods and variable identifiers</li>
+<ul><li>Camel casing methods and variable identifiers</li>
 <li>e.g. first letter of the first word is lowercase</li></ul>
 </li>userName, accountNumber and physicalAddress</li>
 <li>Components variable names you always precede with three letters of the component</li>
