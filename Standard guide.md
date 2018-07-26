@@ -4,9 +4,8 @@ N.B. Please feel free to add any other standard
 These are the basic rules/standards we will adhere to. This will also help us to have a professional and easy to read code style.
 
 <h3>1. Naming convention</h3>
-     
-            i) N.B. classes, methods, variables and constants must be descriptive and unambiguous
-            ii) N.B. constant variable must be uppercase
+- N.B. classes, methods, variables and constants must be descriptive and unambiguous
+- N.B. constant variable must be uppercase
 e.g. the days in the year
 int final DAYS_IN_YEAR = 365
             iii) Pascal casing for classes
