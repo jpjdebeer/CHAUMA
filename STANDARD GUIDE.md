@@ -33,14 +33,17 @@ e.g. text fields that accept name and surname
 - javadoc comments. javadoc comments begin with /** and end with */. They can be extracted into an HTML file using JDK’s javadoc command.
 
 <h3>3. Proper Indentation and Spacing</h3>
-- Format code:	Code -> Reformat code (Ctrl+Alt+L)
-- Use tabs if need be however, Android studio automatically format your code.
-	
-<h3>4. Block Styles</h3>
-A block is a group of statements surrounded by braces. There are two popular styles, next-line style and end-of-line style.
-- next-line style
-- end-of-line style
+Format code:	Code -> Reformat code (Ctrl+Alt+L)<br/>
+Use tabs if need be however, Android studio automatically format your code.<br/>
 
+<h3>4. Block Styles</h3>
+A block is a group of statements surrounded by braces. There are two popular styles:
+<li><b>- Next-line style</b></li>
+<li><b>- End-of-line style</b></li>
+
+
+```java
+//This is a next-line style
 public class Test
 {
      public static void main(String[]args)
@@ -48,11 +51,14 @@ public class Test
           System.out.printlnl(“next line style”);
      }
 }
-
+```
+```java
+//This is an end of line style
 public class Test {
      public static void main(String[]args) {
           System.out.printlnl(“end of line style”);
      }
 }
+```
 
 <i>Preferably please use the end-of-line style</i>
