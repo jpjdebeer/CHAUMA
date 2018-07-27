@@ -4,9 +4,9 @@ N.B. Please feel free to add any other standard
 These are the basic rules/standards we will adhere to. This will also help us to have a professional and easy to read code style.
 
 <h3>1. Naming convention</h3>
-<li>N.B. classes, methods, variables and constants must be descriptive and unambiguous<li>
-<li>N.B. constant variable must be uppercase<li>
-	* e.g. the days in the year:	int final DAYS_IN_YEAR = 365
+* N.B. classes, methods, variables and constants must be descriptive and unambiguous
+* N.B. constant variable must be uppercase<li>
+* e.g. the days in the year:	int final DAYS_IN_YEAR = 365
 <li>Pascal casing for classes</li>
 	* Capitalize the first letter of each word in a class name
 	* e.g. First letter of every word is uppercase
@@ -27,8 +27,8 @@ These are the basic rules/standards we will adhere to. This will also help us to
 <h3>2. Documentation</h3>
 </li>Please add comments to your methods, variables and classes and be as clear and as concise as possible</li>
 <li>Include a summary at the beginning of the program to explain what the program does, its key features, and any unique techniques it uses</li>
-<li>Single line comment ```java //text... ``` </li>
-<li>Multiple/Paragraph comments ```java /*...text...*/ ``` </li>
+<li>Single line comment		//text...	</li>
+<li>Multiple/Paragraph comments	/*...text...*/	</li>
 <li>javadoc comments. javadoc comments begin with /** and end with */. They can be extracted into an HTML file using JDK’s javadoc command. </li>
 
 <h3>3. Proper Indentation and Spacing</h3>
