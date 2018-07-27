@@ -8,9 +8,9 @@ import com.example.shaun.chauma.R;
 /**
  * Create all the events for the CPUT HIV/AIDS Unit.
  *
- * @author  Banele Mlamleli
+ * @author Banele Mlamleli
  * @version 1.0
- * @since   2018-01-31
+ * @since 2018-01-31
  */
 public class SetEventActivity extends AppCompatActivity {
 
