@@ -55,17 +55,20 @@ The user accounts will allow the coordinators to communicate tasks to the indivi
 
 <p>These are the main colour that will be used throughout this Application as they are the colours for CPUT. These colours were obtained from the CPUT official website <a href="http://www.cput.ac.za/about/brand/colour">CPUT Brand colour</a></p>
 
-<p>043B65<br/>
-rgb(4,59,101)<br/>
-hsl(206,92%,21%)<br/>
-<img src="Wireframes/firstColour.png" width="150" height="30"></p>
+<p>
+003399<br/>
+rgb(0,102,153)<br/>
+hsl(220,100%,30%)<br/>
+cmyk(100,51,0,31)<br/></p>
 
-<p>0099FF<br/>
-rgb(0,153,255)<br/>
-hsl(204,100%,50%)<br/>
-<img src="Wireframes/secondColour.png" width="150" height="30"></p>
+<p>
+0099CC<br/>
+rgb(0,153,204)<br/>
+hsl(195,100%,40%)
+cmyk(100,9,0,6)<br/><br/></p>
 
-<p>91D3FF<br/>
-rgb(145,211,255)<br/>
-hsl(204,100%,78%)<br/>
-<img src="Wireframes/fourthColour.png" width="150" height="30"></p>
+<p>
+99CCCC<br/>
+rgb(102,204,204)<br/>
+hsl(180,33%,70%)<br/>
+cmyk(45,0,10,10)<br/></p>
