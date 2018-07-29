@@ -3,4 +3,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="cput_hiv_aids_unit">CPUT HIV/AIDS Unit</string>
+    <string name="administrative_privileges">Administrative privileges</string>
 </resources>
