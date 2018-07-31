@@ -27,12 +27,6 @@
         <activity android:name="com.cput.chauma.PeerEducatorActivity" />
         <activity android:name="com.cput.chauma.SetEventActivity" />
         <activity android:name="com.cput.chauma.HomeActivity"/>
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
         <activity android:name="com.cput.chauma.ContactActivity" />
         <activity android:name="com.cput.chauma.AskQuestionActivity"></activity>
     </application>
