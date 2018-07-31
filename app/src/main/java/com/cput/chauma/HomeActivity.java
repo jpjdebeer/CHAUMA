@@ -4,6 +4,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.shaun.chauma.R;
@@ -20,13 +22,17 @@ public class HomeActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
+    private Toolbar toolbar;    //This instance is for the navigation toolbar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.homeActivityDrawerLayout);
+        toolbar = findViewById(R.id.navigation_action_bar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout = findViewById(R.id.homeActivityDrawerLayout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -37,9 +43,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 }

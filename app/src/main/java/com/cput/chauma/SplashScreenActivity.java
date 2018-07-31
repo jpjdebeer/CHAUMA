@@ -22,7 +22,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen_activity);
-        getSupportActionBar().hide();//Hiding the top action bar to have a full screen of the app
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
