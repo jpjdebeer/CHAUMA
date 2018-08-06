@@ -7,4 +7,13 @@
     <string name="close">Close</string>
     <string name="cput_hiv_aids_unit">CPUT HIV/AIDS Unit</string>
     <string name="administrative_privileges">Administrative privileges</string>
+    <string name="adminlogin">Admin Login</string>
+    <string name="home">Home</string>
+    <string name="todo">TODO</string>
+    <string name="clinic">Clinic</string>
+    <string name="brochure">Brochure</string>
+    <string name="events">Events</string>
+    <string name="join_us">Join Us</string>
+    <string name="faq">FAQ</string>
+    <string name="contacts">Contacts</string>
 </resources>
