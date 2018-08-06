@@ -66,10 +66,6 @@ public class HomeActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Join Us", Toast.LENGTH_SHORT).show();
                 }else if(itemId == R.id.contacts){
                     Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
-                }else if(itemId == R.id.layoutLoginIcon){
-                    Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
-                }else if(itemId == R.id.layoutHomeIcon){
-                    Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
@@ -78,7 +74,18 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_options, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.homeButton){
+            Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
+        }else if(item.getItemId() == R.id.loginButton){
+            Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
+        }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 }

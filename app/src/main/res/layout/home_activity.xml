@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <!--Adding the side navigation view with the list of menu items-->
+    <!--Adding the side navigation view with the list of toolbar_options items-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigationViewLayout"
         android:layout_width="wrap_content"
