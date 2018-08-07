@@ -22,7 +22,7 @@
         android:title="@string/faq"
         android:icon="@drawable/ic_question_answer_black_24dp"/>
 
-    <item android:id="@+id/joinus"
+    <item android:id="@+id/getInvolve"
         android:title="@string/join_us"
         android:icon="@drawable/ic_group_add_black_24dp"/>
 

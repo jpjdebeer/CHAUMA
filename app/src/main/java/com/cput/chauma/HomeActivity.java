@@ -1,5 +1,6 @@
 package com.cput.chauma;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -9,7 +10,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -54,18 +54,25 @@ public class HomeActivity extends AppCompatActivity {
 
                 if (itemId == R.id.home){
                     Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                    openActivity("HomeActivity");
                 }else if(itemId == R.id.clinic){
                     Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
+                    openActivity("ClinicActivity");
                 }else if(itemId == R.id.brochure){
                     Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
+                    openActivity("BrochureActivity");
                 }else if(itemId == R.id.events){
                     Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
+                    openActivity("EventActivity");
                 }else if(itemId == R.id.faq){
                     Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
-                }else if(itemId == R.id.joinus){
-                    Toast.makeText(getApplicationContext(), "Join Us", Toast.LENGTH_SHORT).show();
+                    openActivity("FrequentlyAskedQuestionActivity");
+                }else if(itemId == R.id.getInvolve){
+                    Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
+                    openActivity("GetInvolveActivity");
                 }else if(itemId == R.id.contacts){
                     Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
+                    openActivity("ContactActivity");
                 }
                 return true;
             }
@@ -83,9 +90,48 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
+            openActivity("HomeActivity");
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
+            openActivity("LoginActivity");
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    public void openActivity(String value){
+        switch (value){
+            case "HomeActivity":
+                Intent homeActivity = new Intent(this, HomeActivity.class);
+                startActivity(homeActivity);
+                finish();break;
+            case "ClinicActivity":
+                Intent clinicActivity = new Intent(this, ClinicActivity.class);
+                startActivity(clinicActivity);
+                finish();break;
+            case "BrochureActivity":
+                Intent brochureActivity = new Intent(this, BrochureActivity.class);
+                startActivity(brochureActivity);
+                finish();break;
+            case "EventActivity":
+                Intent eventActivity = new Intent(this, EventActivity.class);
+                startActivity(eventActivity);
+                finish();break;
+            case "FrequentlyAskedQuestionActivity":
+                Intent faqActivity = new Intent(this, FrequentlyAskedQuestionActivity.class);
+                startActivity(faqActivity);
+                finish();break;
+            case "GetInvolveActivity":
+                Intent getInvolveActivity = new Intent(this, GetInvolveActivity.class);
+                startActivity(getInvolveActivity);
+                finish();break;
+            case "ContactActivity":
+                Intent contactActivity = new Intent(this, ContactActivity.class);
+                startActivity(contactActivity);
+                finish();break;
+            case "LoginActivity":
+                Intent loginActivity = new Intent(this, LoginActivity.class);
+                startActivity(loginActivity);
+                finish();break;
+        }
     }
 }
