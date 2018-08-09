@@ -49,29 +49,28 @@ public class BrochureActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-
-                if (itemId == R.id.home){
-                    Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
-                    openActivity("HomeActivity");
-                }else if(itemId == R.id.clinic){
-                    Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                    openActivity("ClinicActivity");
-                }else if(itemId == R.id.brochure){
-                    Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
-                    openActivity("BrochureActivity");
-                }else if(itemId == R.id.events){
-                    Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
-                    openActivity("EventActivity");
-                }else if(itemId == R.id.faq){
-                    Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
-                    openActivity("FrequentlyAskedQuestionActivity");
-                }else if(itemId == R.id.getInvolve){
-                    Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
-                    openActivity("GetInvolveActivity");
-                }else if(itemId == R.id.contacts){
-                    Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
-                    openActivity("ContactActivity");
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                        openActivity("HomeActivity");break;
+                    case R.id.clinic:
+                        Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
+                        openActivity("ClinicActivity");break;
+                    case R.id.brochure:
+                        Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
+                        openActivity("BrochureActivity");break;
+                    case R.id.events:
+                        Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
+                        openActivity("EventActivity");break;
+                    case R.id.faq:
+                        Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
+                        openActivity("FrequentlyAskedQuestionActivity");break;
+                    case R.id.getInvolve:
+                        Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
+                        openActivity("GetInvolveActivity");break;
+                    case R.id.contacts:
+                        Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
+                        openActivity("ContactActivity");break;
                 }
                 return true;
             }
