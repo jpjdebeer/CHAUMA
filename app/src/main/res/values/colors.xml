@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#00FF00</color>  <!--#3F51B5-->
+    <color name="colorPrimaryDark">#FF00FF</color>  <!--#303F9F-->
+    <color name="colorAccent">#FFFF00</color>   <!--#FF4081-->
     <color name="darkBlue">#003399</color>
     <color name="midBlue">#0099CC</color>
     <color name="seaBlue">#99CCCC</color>
-    <color name="red">#FF0000</color>
+    <color name="navBackgroundColor">#FF0033</color>
 </resources>

@@ -26,6 +26,7 @@ public class ClinicActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    public String clinicPreviousActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class ClinicActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);    //removing the title name(in this case is was the app name)
+        getSupportActionBar().setDisplayShowTitleEnabled(false);    //removing the title name(in this case is was the default app name)
 
         final NavigationView navigationView = findViewById(R.id.navigationViewLayout);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -52,24 +53,31 @@ public class ClinicActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "HomeActivity";
                         openActivity("HomeActivity");break;
                     case R.id.clinic:
                         Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "ClinicActivity";
                         openActivity("ClinicActivity");break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "BrochureActivity";
                         openActivity("BrochureActivity");break;
                     case R.id.events:
                         Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "EventActivity";
                         openActivity("EventActivity");break;
                     case R.id.faq:
                         Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "FrequentlyAskedQuestionActivity";
                         openActivity("FrequentlyAskedQuestionActivity");break;
                     case R.id.getInvolve:
                         Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "GetInvolveActivity";
                         openActivity("GetInvolveActivity");break;
                     case R.id.contacts:
                         Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
+                        //clinicPreviousActivity = "ContactActivity";
                         openActivity("ContactActivity");break;
                 }
                 return true;
@@ -88,10 +96,12 @@ public class ClinicActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
+            //clinicPreviousActivity = "HomeActivity";
             openActivity("HomeActivity");
             finish();
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
+            //clinicPreviousActivity = "LoginActivity";
             openActivity("LoginActivity");
             finish();
         }

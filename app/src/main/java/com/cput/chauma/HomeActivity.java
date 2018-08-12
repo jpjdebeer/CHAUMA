@@ -23,7 +23,6 @@ import com.example.shaun.chauma.R;
  * @since   2018-01-31
  */
 public class HomeActivity extends AppCompatActivity {
-
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
@@ -77,6 +76,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
     @Override
