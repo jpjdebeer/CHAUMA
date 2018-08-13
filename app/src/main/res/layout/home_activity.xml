@@ -18,288 +18,363 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <!--Layout that will contain all the layouts for individual CardViews-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/gray"
-            android:padding="10dp">
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:background="@color/gray">
 
-            <!--Top layout-->
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:background="#FFE4C4">
+           <!--Layout that will contain all the layouts for individual CardViews-->
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
 
-                <!--Clinic Card view-->
-                <android.support.v7.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="170dp"
-                    android:padding="10dp">
+               <!--Top layout-->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="#00FFFF"
+                   android:clipToPadding="false"
+                   android:orientation="horizontal"
+                   android:padding="10dp"
+                   android:paddingRight="10dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/circle_bg_red"
-                            android:src="@drawable/ic_add_location_pin_black_24dp"
-                            android:padding="10dp"/>
+                   <!--Clinic Card view-->
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:paddingRight="14dp">
+                       <android.support.v7.widget.CardView
+                           android:id="@+id/homeClinicOption"
+                           android:clickable="true"
+                           android:layout_width="165dp"
+                           android:layout_height="172dp"
+                           android:padding="10dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="@string/clinic"
-                            android:textColor="@color/red"/>
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:gravity="center"
+                               android:orientation="vertical"
+                               android:background="@color/gray">
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="5dp"/>
+                               <ImageView
+                                   android:layout_width="65dp"
+                                   android:layout_height="65dp"
+                                   android:background="@drawable/circle_bg_red"
+                                   android:padding="10dp"
+                                   android:src="@drawable/ic_add_location_pin_black_24dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
-                    </LinearLayout>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="10dp"
+                                   android:text="@string/clinic"
+                                   android:textColor="@color/red"
+                                   android:textStyle="bold" />
 
-                </android.support.v7.widget.CardView>
+                               <View
+                                   android:layout_width="match_parent"
+                                   android:layout_height="2dp"
+                                   android:layout_margin="5dp" />
 
-                <!--Brochure Card view-->
-                <android.support.v7.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="170dp"
-                    android:padding="10dp">
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="5dp"
+                                   android:paddingLeft="5dp"
+                                   android:paddingRight="2dp"
+                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                           </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/circle_bg_yello"
-                            android:src="@drawable/ic_picture_as_pdf_black_24dp"
-                            android:padding="10dp"/>
+                       </android.support.v7.widget.CardView>
+                   </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="@string/brochure"
-                            android:textColor="@color/colorAccent"/>
+                   <!--Brochure Card view-->
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+                       <android.support.v7.widget.CardView
+                           android:id="@+id/homeBrochureOption"
+                           android:clickable="true"
+                           android:layout_width="165dp"
+                           android:layout_height="172dp"
+                           android:padding="10dp">
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="5dp"/>
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:gravity="center"
+                               android:orientation="vertical"
+                               android:background="@color/gray">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
-                    </LinearLayout>
+                               <ImageView
+                                   android:layout_width="65dp"
+                                   android:layout_height="65dp"
+                                   android:background="@drawable/circle_bg_midblue"
+                                   android:padding="10dp"
+                                   android:src="@drawable/ic_picture_as_pdf_black_24dp" />
 
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="10dp"
+                                   android:text="@string/brochure"
+                                   android:textColor="@color/midBlue"
+                                   android:textStyle="bold" />
 
-            <!--Mid layout-->
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:background="#FFE4C4">
+                               <View
+                                   android:layout_width="match_parent"
+                                   android:layout_height="2dp"
+                                   android:layout_margin="5dp" />
 
-                <!--Clinic Card view-->
-                <android.support.v7.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="170dp"
-                    android:padding="10dp">
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="5dp"
+                                   android:paddingLeft="5dp"
+                                   android:paddingRight="2dp"
+                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                           </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/circle_bg_red"
-                            android:src="@drawable/ic_add_location_pin_black_24dp"
-                            android:padding="10dp"/>
+                       </android.support.v7.widget.CardView>
+                   </LinearLayout>
+               </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="@string/clinic"
-                            android:textColor="@color/red"/>
+               <!--Middle layout-->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="#00FFFF"
+                   android:clipToPadding="false"
+                   android:orientation="horizontal"
+                   android:padding="10dp"
+                   android:paddingRight="10dp">
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="5dp"/>
+                   <!--Event Card view-->
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:paddingRight="14dp">
+                       <android.support.v7.widget.CardView
+                           android:id="@+id/homeEventOption"
+                           android:clickable="true"
+                           android:layout_width="165dp"
+                           android:layout_height="175dp"
+                           android:padding="10dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
-                    </LinearLayout>
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:gravity="center"
+                               android:orientation="vertical"
+                               android:background="@color/gray">
 
-                </android.support.v7.widget.CardView>
+                               <ImageView
+                                   android:layout_width="65dp"
+                                   android:layout_height="65dp"
+                                   android:background="@drawable/circle_bg_purple"
+                                   android:padding="10dp"
+                                   android:src="@drawable/ic_event_available_black_24dp" />
 
-                <!--Brochure Card view-->
-                <android.support.v7.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="170dp"
-                    android:padding="10dp">
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="10dp"
+                                   android:text="@string/events"
+                                   android:textColor="@color/purple"
+                                   android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/circle_bg_yello"
-                            android:src="@drawable/ic_picture_as_pdf_black_24dp"
-                            android:padding="10dp"/>
+                               <View
+                                   android:layout_width="match_parent"
+                                   android:layout_height="2dp"
+                                   android:layout_margin="5dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="@string/brochure"
-                            android:textColor="@color/colorAccent"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="5dp"
+                                   android:paddingLeft="5dp"
+                                   android:paddingRight="2dp"
+                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                           </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="5dp"/>
+                       </android.support.v7.widget.CardView>
+                   </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
-                    </LinearLayout>
+                   <!--FAQ Card view-->
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+                       <android.support.v7.widget.CardView
+                           android:id="@+id/homeFaqOption"
+                           android:clickable="true"
+                           android:layout_width="165dp"
+                           android:layout_height="175dp"
+                           android:padding="10dp">
 
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:gravity="center"
+                               android:orientation="vertical"
+                               android:background="@color/gray">
 
-            <!--Bottom layout-->
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:background="#FFE4C4">
+                               <ImageView
+                                   android:layout_width="65dp"
+                                   android:layout_height="65dp"
+                                   android:background="@drawable/circle_bg_yello"
+                                   android:padding="10dp"
+                                   android:src="@drawable/ic_question_answer_black_24dp" />
 
-                <!--Clinic Card view-->
-                <android.support.v7.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="170dp"
-                    android:padding="10dp">
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="10dp"
+                                   android:text="@string/faq"
+                                   android:textColor="@color/colorAccent"
+                                   android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/circle_bg_red"
-                            android:src="@drawable/ic_add_location_pin_black_24dp"
-                            android:padding="10dp"/>
+                               <View
+                                   android:layout_width="match_parent"
+                                   android:layout_height="2dp"
+                                   android:layout_margin="5dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="@string/clinic"
-                            android:textColor="@color/red"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="5dp"
+                                   android:paddingLeft="5dp"
+                                   android:paddingRight="2dp"
+                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                           </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="5dp"/>
+                       </android.support.v7.widget.CardView>
+                   </LinearLayout>
+               </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
-                    </LinearLayout>
+               <!--Bottom layout-->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="#00FFFF"
+                   android:clipToPadding="false"
+                   android:orientation="horizontal"
+                   android:padding="10dp"
+                   android:paddingRight="10dp">
 
-                </android.support.v7.widget.CardView>
+                   <!--Get Involve Card view-->
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:paddingRight="14dp">
+                       <android.support.v7.widget.CardView
+                           android:id="@+id/homeGetInvolveOption"
+                           android:clickable="true"
+                           android:layout_width="165dp"
+                           android:layout_height="172dp"
+                           android:padding="10dp">
 
-                <!--Brochure Card view-->
-                <android.support.v7.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="170dp"
-                    android:padding="10dp">
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:gravity="center"
+                               android:orientation="vertical"
+                               android:background="@color/gray">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/circle_bg_yello"
-                            android:src="@drawable/ic_picture_as_pdf_black_24dp"
-                            android:padding="10dp"/>
+                               <ImageView
+                                   android:layout_width="65dp"
+                                   android:layout_height="65dp"
+                                   android:background="@drawable/circle_bg_darkblue"
+                                   android:padding="10dp"
+                                   android:src="@drawable/ic_group_add_black_24dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="@string/brochure"
-                            android:textColor="@color/colorAccent"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="10dp"
+                                   android:text="@string/join_us"
+                                   android:textColor="@color/darkBlue"
+                                   android:textStyle="bold" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="5dp"/>
+                               <View
+                                   android:layout_width="match_parent"
+                                   android:layout_height="2dp"
+                                   android:layout_margin="5dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
-                    </LinearLayout>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="5dp"
+                                   android:paddingLeft="5dp"
+                                   android:paddingRight="2dp"
+                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                           </LinearLayout>
 
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+                       </android.support.v7.widget.CardView>
+                   </LinearLayout>
 
-        </LinearLayout>
+                   <!--Contacts Card view-->
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+                       <android.support.v7.widget.CardView
+                           android:id="@+id/homeContactsOption"
+                           android:clickable="true"
+                           android:layout_width="165dp"
+                           android:layout_height="172dp"
+                           android:padding="10dp">
+
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:gravity="center"
+                               android:orientation="vertical"
+                               android:background="@color/gray">
+
+                               <ImageView
+                                   android:layout_width="65dp"
+                                   android:layout_height="65dp"
+                                   android:background="@drawable/circle_bg_seablue"
+                                   android:padding="10dp"
+                                   android:src="@drawable/ic_contact_phone_black_24dp" />
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="10dp"
+                                   android:text="@string/clinic"
+                                   android:textColor="@color/seaBlue"
+                                   android:textStyle="bold" />
+
+                               <View
+                                   android:layout_width="match_parent"
+                                   android:layout_height="2dp"
+                                   android:layout_margin="5dp" />
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginTop="5dp"
+                                   android:paddingLeft="5dp"
+                                   android:paddingRight="2dp"
+                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                           </LinearLayout>
+
+                       </android.support.v7.widget.CardView>
+                   </LinearLayout>
+               </LinearLayout>
+           </LinearLayout>
+
+       </ScrollView>
+
     </LinearLayout>
 
     <!--Adding the side navigation view with the list of toolbar_options items-->

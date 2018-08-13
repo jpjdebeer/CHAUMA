@@ -7,9 +7,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -22,10 +24,11 @@ import com.example.shaun.chauma.R;
  * @version 1.0
  * @since   2018-01-31
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    private CardView clinicCard, brochureCard, eventsCard, faqCard, getInvolved, contactsCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,45 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        clinicCard = (CardView) findViewById(R.id.homeClinicOption);
+        brochureCard = (CardView) findViewById(R.id.homeBrochureOption);
+        eventsCard = (CardView) findViewById(R.id.homeEventOption);
+        faqCard = (CardView) findViewById(R.id.homeFaqOption);
+        getInvolved = (CardView) findViewById(R.id.homeGetInvolveOption);
+        contactsCard = (CardView) findViewById(R.id.homeContactsOption);
+
+        clinicCard.setOnClickListener(this);
+        brochureCard.setOnClickListener(this);
+        eventsCard.setOnClickListener(this);
+        faqCard.setOnClickListener(this);
+        getInvolved.setOnClickListener(this);
+        contactsCard.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.homeClinicOption:
+                startActivity(new Intent(this, ClinicActivity.class));
+                finish();break;
+            case R.id.homeBrochureOption:
+                startActivity(new Intent(this, BrochureActivity.class));
+                finish();break;
+            case R.id.homeEventOption:
+                startActivity(new Intent(this, EventActivity.class));
+                finish();break;
+            case R.id.homeFaqOption:
+                startActivity(new Intent(this, FrequentlyAskedQuestionActivity.class));
+                finish();break;
+            case R.id.homeGetInvolveOption:
+                startActivity(new Intent(this, GetInvolveActivity.class));
+                finish();break;
+            case R.id.homeContactsOption:
+                startActivity(new Intent(this, ContactActivity.class));
+                finish();break;
+            default:break;
+        }
     }
 
     @Override
