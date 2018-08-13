@@ -16,4 +16,6 @@
     <string name="join_us">Join Us</string>
     <string name="faq">FAQ</string>
     <string name="contacts">Contacts</string>
+    <string name="edit_accounts">Edit Accounts</string>
+    <string name="set_event">Set Event</string>
 </resources>

@@ -7,9 +7,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -22,11 +24,12 @@ import com.example.shaun.chauma.R;
  * @version 1.0
  * @since   2018-01-31
  */
-public class AdminActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity implements View.OnClickListener{
 
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    private CardView editAccount, setEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,25 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        editAccount = (CardView) findViewById(R.id.editAccount);
+        setEvent = (CardView) findViewById(R.id.setEvent);
+
+        editAccount.setOnClickListener(this);
+        setEvent.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.editAccount:
+                startActivity(new Intent(this, EditAccountActivity.class));
+                finish();break;
+            case R.id.setEvent:
+                startActivity(new Intent(this, SetEventActivity.class));
+                finish();break;
+            default:break;
+        }
     }
 
     @Override
