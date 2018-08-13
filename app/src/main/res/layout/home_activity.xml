@@ -11,19 +11,295 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <!--We are including the navigation actionbar we created-->
         <include layout="@layout/navigation_actionbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
+        <!--Layout that will contain all the layouts for individual CardViews-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="HOME ACTIVITY"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/gray"
+            android:padding="10dp">
+
+            <!--Top layout-->
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="#FFE4C4">
+
+                <!--Clinic Card view-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:background="@drawable/circle_bg_red"
+                            android:src="@drawable/ic_add_location_pin_black_24dp"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/clinic"
+                            android:textColor="@color/red"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--Brochure Card view-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:background="@drawable/circle_bg_yello"
+                            android:src="@drawable/ic_picture_as_pdf_black_24dp"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/brochure"
+                            android:textColor="@color/colorAccent"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <!--Mid layout-->
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="#FFE4C4">
+
+                <!--Clinic Card view-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:background="@drawable/circle_bg_red"
+                            android:src="@drawable/ic_add_location_pin_black_24dp"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/clinic"
+                            android:textColor="@color/red"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--Brochure Card view-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:background="@drawable/circle_bg_yello"
+                            android:src="@drawable/ic_picture_as_pdf_black_24dp"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/brochure"
+                            android:textColor="@color/colorAccent"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <!--Bottom layout-->
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="#FFE4C4">
+
+                <!--Clinic Card view-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:background="@drawable/circle_bg_red"
+                            android:src="@drawable/ic_add_location_pin_black_24dp"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/clinic"
+                            android:textColor="@color/red"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--Brochure Card view-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="170dp"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:background="@drawable/circle_bg_yello"
+                            android:src="@drawable/ic_picture_as_pdf_black_24dp"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+                            android:text="@string/brochure"
+                            android:textColor="@color/colorAccent"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
     <!--Adding the side navigation view with the list of toolbar_options items-->
