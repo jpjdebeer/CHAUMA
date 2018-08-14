@@ -19,17 +19,16 @@
             android:layout_height="wrap_content"/>
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00FFFF"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:background="#00FFFF">
 
             <!--Layout that will contain all the layouts for individual CardViews-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#00FFFF"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="10dp">

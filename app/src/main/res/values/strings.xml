@@ -18,4 +18,9 @@
     <string name="contacts">Contacts</string>
     <string name="edit_accounts">Edit Accounts</string>
     <string name="set_event">Set Event</string>
+    <string name="name">Name</string>
+    <string name="e_mail_address">E-mail address</string>
+    <string name="surname">Surname</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
 </resources>
