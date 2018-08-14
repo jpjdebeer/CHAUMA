@@ -28,4 +28,17 @@
     <string name="change_user_password">Change user password</string>
     <string name="save">SAVE</string>
     <string name="delete_user">Delete user</string>
+    <string name="identity_number">Identity Number</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="become_a_peer_educator">Become a peer educator</string>
+    <string name="male">Male</string>
+    <string name="what_do_peer_educators_do">What do peer educators do ?</string>
+    <string name="definition">Peer educators are trained and equipped with skills to allow them to become agents of change amongst their peers in the context of HIV/AIDS, STIs and TB. Peer educators take part in awareness campaigns, condom distribution, community outreach, campus and residence discussions, and self-initiative projects.</string>
+    <string name="female">Female</string>
+    <string name="intersex">Intersex</string>
+    <string name="course">Course</string>
+    <string name="privateGender">Private</string>
+    <string name="year_of_study">1st year, 2nd year or 3rd year</string>
+    <string name="student_number">Student Number</string>
+    <string name="apply">APPLY</string>
 </resources>
