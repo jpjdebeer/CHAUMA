@@ -18,12 +18,348 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="EDIT ACCOUNT ACTIVITY"/>
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="#00FFFF">
+
+            <!--Layout that will contain all the layouts for individual CardViews-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--Add user-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:paddingLeft="5dp"
+                                android:background="@drawable/circle_bg_purple"
+                                android:src="@drawable/ic_person_add_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Add a new user"
+                                android:textColor="@color/purple"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/txtNewUserName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:inputType="text"
+                                android:hint="@string/name"
+                                android:drawableStart="@drawable/ic_person_black_24dp"
+                                android:drawableLeft="@drawable/ic_person_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtNewUserSurnamme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:inputType="text"
+                                android:hint="@string/surname"
+                                android:drawableStart="@drawable/ic_person_black_24dp"
+                                android:drawableLeft="@drawable/ic_person_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtNewUsername"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:inputType="text"
+                                android:hint="@string/username"
+                                android:drawableStart="@drawable/ic_person_black_24dp"
+                                android:drawableLeft="@drawable/ic_person_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtNewUserPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:hint="@string/password"
+                                android:inputType="textPassword"
+                                android:drawableStart="@drawable/ic_lock_black_24dp"
+                                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtConfirmPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:hint="Confirm password"
+                                android:inputType="textPassword"
+                                android:drawableStart="@drawable/ic_lock_black_24dp"
+                                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+                            <Button
+                                android:id="@+id/btnAddUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/darkBlue"
+                                android:text="@string/add_user"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"/>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <!--Change use password-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:paddingLeft="5dp"
+                                android:background="@drawable/circle_bg_midblue"
+                                android:src="@drawable/ic_edit_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/change_user_password"
+                                android:textColor="@color/midBlue"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/txtChangeUsername"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:inputType="text"
+                                android:hint="@string/username"
+                                android:drawableStart="@drawable/ic_person_black_24dp"
+                                android:drawableLeft="@drawable/ic_person_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtChangeUserPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:hint="@string/password"
+                                android:inputType="textPassword"
+                                android:drawableStart="@drawable/ic_lock_black_24dp"
+                                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtConfirmChangePassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:hint="Confirm password"
+                                android:inputType="textPassword"
+                                android:drawableStart="@drawable/ic_lock_black_24dp"
+                                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+                            <Button
+                                android:id="@+id/btnSaveChange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/darkBlue"
+                                android:text="@string/save"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"/>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <!--Delete user-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:paddingLeft="5dp"
+                                android:background="@drawable/circle_bg_red"
+                                android:src="@drawable/ic_delete_forever_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/delete_user"
+                                android:textColor="@color/red"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/txtDeleteUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:inputType="text"
+                                android:hint="@string/username"
+                                android:drawableStart="@drawable/ic_person_black_24dp"
+                                android:drawableLeft="@drawable/ic_person_black_24dp"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:background="@color/seaBlue"/>
+
+                            <EditText
+                                android:id="@+id/txtDisplayDetails"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_gravity="top|center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/seaBlue"
+                                android:hint="Display ditails"
+                                android:inputType="text|textMultiLine"
+                                android:padding="10dp"
+                                android:gravity="top|left"
+                                android:scrollHorizontally="false"
+                                android:scrollbars="vertical"
+                                android:textColor="#fff"
+                                android:textSize="15sp" />
+
+                            <Button
+                                android:id="@+id/btnDeleteUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/red"
+                                android:text="DELETE USER"
+                                android:textColor="#fff"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"/>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
     </LinearLayout>
 
     <!--Adding the side navigation view with the list of toolbar_options items-->

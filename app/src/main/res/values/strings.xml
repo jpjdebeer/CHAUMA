@@ -23,4 +23,9 @@
     <string name="surname">Surname</string>
     <string name="message">Message</string>
     <string name="send">Send</string>
+    <string name="add_user">Add User</string>
+    <string name="add_a_new_user">Add a new user</string>
+    <string name="change_user_password">Change user password</string>
+    <string name="save">SAVE</string>
+    <string name="delete_user">Delete user</string>
 </resources>
