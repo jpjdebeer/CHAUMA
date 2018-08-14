@@ -336,6 +336,7 @@
                                 android:scrollHorizontally="false"
                                 android:scrollbars="vertical"
                                 android:textColor="#fff"
+                                android:enabled="false"
                                 android:textSize="15sp" />
 
                             <Button
