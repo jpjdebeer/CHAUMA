@@ -41,4 +41,9 @@
     <string name="year_of_study">1st year, 2nd year or 3rd year</string>
     <string name="student_number">Student Number</string>
     <string name="apply">APPLY</string>
+    <string name="peer_educator">Peer educator</string>
+    <string name="btn_send">SEND</string>
+    <string name="accept">ACCEPT</string>
+    <string name="decline">DECLINE</string>
+    <string name="event_details">Event details</string>
 </resources>

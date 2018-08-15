@@ -102,7 +102,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ClinicActivity.class));
                 finish();break;
             case R.id.homeBrochureOption:
-                startActivity(new Intent(this, BrochureActivity.class));
+                startActivity(new Intent(this, PeerEducatorActivity.class));//(new Intent(this, BrochureActivity.class));
                 finish();break;
             case R.id.homeEventOption:
                 startActivity(new Intent(this, EventActivity.class));
