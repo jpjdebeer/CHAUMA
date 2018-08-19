@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 /**
  * This screen will display all the options or actions a user can do.
@@ -29,9 +30,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
     private CardView clinicCard, brochureCard, eventsCard, faqCard, getInvolved, contactsCard;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 

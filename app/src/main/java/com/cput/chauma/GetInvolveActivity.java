@@ -1,18 +1,19 @@
 package com.cput.chauma;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Application form for individuals to apply in order to become
@@ -27,6 +28,7 @@ public class GetInvolveActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,8 @@ public class GetInvolveActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
