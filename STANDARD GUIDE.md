@@ -26,7 +26,6 @@ rdbNo<br/>
 		
 <h3>2. Documentation</h3>
 </li>Please add comments to your methods, variables and classes and be as clear and as concise as possible</li>
-<li>Include a summary at the beginning of the program to explain what the program does, its key features, and any unique techniques it uses</li>
 <li>Single line comment		//text...	</li>
 <li>Multiple/Paragraph comments	/*...text...*/	</li>
 <li>javadoc comments. javadoc comments begin with /** and end with */. They can be extracted into an HTML file using JDK’s javadoc command. </li>
