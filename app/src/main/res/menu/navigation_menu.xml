@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home_black_menu_24dp"/>
+
+    <item android:id="@+id/clinic"
+        android:title="@string/clinic"
+        android:icon="@drawable/ic_healing_black_24dp"/>
+
+    <item android:id="@+id/brochure"
+        android:title="@string/brochure"
+        android:icon="@drawable/ic_picture_as_pdf_black_24dp"/>
+
+    <item android:id="@+id/events"
+        android:title="@string/events"
+        android:icon="@drawable/ic_event_available_black_24dp"/>
+
+    <item android:id="@+id/faq"
+        android:title="@string/faq"
+        android:icon="@drawable/ic_question_answer_black_24dp"/>
+
+    <item android:id="@+id/getInvolve"
+        android:title="@string/join_us"
+        android:icon="@drawable/ic_group_add_black_24dp"/>
+
+    <item android:id="@+id/contacts"
+        android:title="@string/contacts"
+        android:icon="@drawable/ic_contacts_black_24dp"/>
+</menu>

@@ -47,7 +47,7 @@ public class Test
 {
      public static void main(String[]args)
      {
-          System.out.printlnl(“next line style”);
+          System.out.println(“next line style”);
      }
 }
 ```
@@ -55,7 +55,7 @@ public class Test
 //This is an end of line style
 public class Test {
      public static void main(String[]args) {
-          System.out.printlnl(“end of line style”);
+          System.out.println(“end of line style”);
      }
 }
 ```

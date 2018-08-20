@@ -1,9 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cput.chauma.PeerEducatorActivity">
+    tools:context="com.cput.chauma.HomeActivity"
+    android:id="@+id/peerEducatorActivityDrawerLayout">
 
-</android.support.constraint.ConstraintLayout>
+    <!--All content/design will be inside this layout-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/midBlue">
+
+        <!--We are including the navigation actionbar we created-->
+        <include layout="@layout/navigation_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/peer_educator"
+                    android:textColor="@color/purple"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+
+
+                <EditText
+                    android:id="@+id/txtPeerCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/seaBlue"
+                    android:hint="@string/event_details"
+                    android:inputType="text|textMultiLine"
+                    android:padding="10dp"
+                    android:gravity="top|left"
+                    android:enabled="false"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical"
+                    android:textColor="#fff"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/btnAccept"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorPrimary"
+                        android:text="@string/accept"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="10dp"/>
+
+
+                    <Button
+                        android:id="@+id/btnDecline"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/red"
+                        android:text="@string/decline"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="10dp"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/txtPeerYearOfStudy"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/seaBlue"
+                    android:hint="@string/message"
+                    android:inputType="text|textMultiLine"
+                    android:padding="10dp"
+                    android:gravity="top|left"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical"
+                    android:textColor="#fff"
+                    android:textSize="20sp"/>
+
+                <Button
+                    android:id="@+id/btnSend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/darkBlue"
+                    android:text="@string/btn_send"
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <!--Adding the side navigation view with the list of toolbar_options items-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigationViewLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/navigation_header"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
