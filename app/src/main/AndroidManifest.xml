@@ -29,6 +29,10 @@
         <activity android:name="com.cput.chauma.HomeActivity"/>
         <activity android:name="com.cput.chauma.ContactActivity" />
         <activity android:name="com.cput.chauma.AskQuestionActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d538884c061569dccf0af90925dd0006030dff09" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
