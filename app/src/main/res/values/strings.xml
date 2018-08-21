@@ -46,4 +46,11 @@
     <string name="accept">ACCEPT</string>
     <string name="decline">DECLINE</string>
     <string name="event_details">Event details</string>
+    <string name="bellville">Bellville</string>
+    <string name="cape_town">Cape Town</string>
+    <string name="_27_21_460_425_3">+27 21 460 425/3</string>
+    <string name="cput_disability_unit">CPUT DISABILITY Unit</string>
+    <string name="cput_campus_clinic">CPUT CAMPUS CLINIC</string>
+    <string name="student_counselling">STUDENT COUNSELLING</string>
+    <string name="other_contacts">OTHER CONTACTS</string>
 </resources>
