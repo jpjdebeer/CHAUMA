@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.github.barteksc.pdfviewer.PDFView;
 
 /**
  * Display the CPUT HIV/AIDS Unit PDF magazine
@@ -26,6 +27,7 @@ public class BrochureActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    public PDFView pdfView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,9 @@ public class BrochureActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        pdfView = (PDFView)findViewById(R.id.brochurePdfView);
+        pdfView.fromAsset("status_update_feb2017.pdf").defaultPage(1).load();
 
     }
 

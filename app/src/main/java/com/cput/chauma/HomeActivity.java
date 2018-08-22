@@ -81,12 +81,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        clinicCard = (CardView) findViewById(R.id.homeClinicOption);
-        brochureCard = (CardView) findViewById(R.id.homeBrochureOption);
-        eventsCard = (CardView) findViewById(R.id.homeEventOption);
-        faqCard = (CardView) findViewById(R.id.homeFaqOption);
-        getInvolved = (CardView) findViewById(R.id.homeGetInvolveOption);
-        contactsCard = (CardView) findViewById(R.id.homeContactsOption);
+        clinicCard = findViewById(R.id.homeClinicOption);
+        brochureCard = findViewById(R.id.homeBrochureOption);
+        eventsCard = findViewById(R.id.homeEventOption);
+        faqCard = findViewById(R.id.homeFaqOption);
+        getInvolved = findViewById(R.id.homeGetInvolveOption);
+        contactsCard = findViewById(R.id.homeContactsOption);
 
         clinicCard.setOnClickListener(this);
         brochureCard.setOnClickListener(this);
@@ -104,7 +104,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ClinicActivity.class));
                 finish();break;
             case R.id.homeBrochureOption:
-                startActivity(new Intent(this, PeerEducatorActivity.class));//(new Intent(this, BrochureActivity.class));
+                startActivity(new Intent(this, BrochureActivity.class));
                 finish();break;
             case R.id.homeEventOption:
                 startActivity(new Intent(this, EventActivity.class));
