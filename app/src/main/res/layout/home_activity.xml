@@ -85,7 +85,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                   android:text="Get access to clinics that are the closest to your current location" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
@@ -136,7 +136,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                   android:text="Our latest news platform compilation. View our events and more " />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
@@ -198,7 +198,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                   android:text="Get a calender view of our coming events and more details" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
@@ -249,7 +249,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                   android:text="Frequently asked questions. You can directly ask us your questions" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
@@ -311,7 +311,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                   android:text="Become a peer educator and join the awesome group" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
@@ -362,7 +362,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                   android:text="Contact details for all CPUT campus and more" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
