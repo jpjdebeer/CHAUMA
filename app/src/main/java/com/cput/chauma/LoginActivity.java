@@ -100,37 +100,59 @@ public class LoginActivity extends AppCompatActivity {
                     EditText txtPassword =  findViewById(R.id.txtPassword);
 
                     final String password = encrypt(txtPassword.getText().toString());
+                    final String username = txtUsername.getText().toString();
 
                     db.collection("PeerEducator")
-                            .whereEqualTo("EmailAddress", txtUsername.getText().toString())
+                            .whereEqualTo("EmailAddress", username)
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    final Task<QuerySnapshot> peerEducatorTask = task;
                                     if (task.isSuccessful()) {
-                                        if (task.getResult() == null)
-                                            Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
+                                        db.collection("Coordinator")
+                                                .whereEqualTo("EmailAddress", username)
+                                                .get()
+                                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<QuerySnapshot> coordinatorTask) {
 
-                                        if (task.getResult() != null) {
-                                            for (DocumentSnapshot document : task.getResult()) {
-                                                ObjectMapper mapper = new ObjectMapper();
-                                                PeerEducator peerEducator = mapper.convertValue(document.getData(), PeerEducator.class);
-                                                if(!peerEducator.Password.equals(password))
-                                                {
-                                                    Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
-                                                }
-                                                else {
-                                                    Toast.makeText(getApplicationContext(), "Hello " + peerEducator.Name, Toast.LENGTH_SHORT).show();
-                                                    Intent nextPage = new Intent(getApplicationContext(), PeerEducatorActivity.class);
-                                                    nextPage.putExtra("peerEducator", peerEducator);
-                                                    startActivity(nextPage);
-                                                }
-                                            }
-                                        }
-                                    }
+                                                        if(peerEducatorTask.getResult() == null && coordinatorTask.getResult() == null)
+                                                            Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
 
-                                    else {
-                                        Log.w("Search", "Error getting documents.", task.getException());
+                                                        if(peerEducatorTask.getResult() != null) {
+                                                            for (DocumentSnapshot document : peerEducatorTask.getResult()) {
+                                                                ObjectMapper mapper = new ObjectMapper();
+                                                                PeerEducator peerEducator = mapper.convertValue(document.getData(), PeerEducator.class);
+                                                                if (!peerEducator.Password.equals(password)) {
+                                                                    Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
+                                                                } else {
+                                                                    Toast.makeText(getApplicationContext(), "Hello " + peerEducator.Name, Toast.LENGTH_SHORT).show();
+                                                                    Intent nextPage = new Intent(getApplicationContext(), PeerEducatorActivity.class);
+                                                                    nextPage.putExtra("peerEducator", peerEducator);
+                                                                    startActivity(nextPage);
+                                                                }
+                                                            }
+                                                        }
+                                                        if(coordinatorTask.getResult() != null) {
+                                                            for (DocumentSnapshot document : coordinatorTask.getResult()) {
+                                                                ObjectMapper mapper = new ObjectMapper();
+                                                                Coordinator coordinator = mapper.convertValue(document.getData(), Coordinator.class);
+                                                                if (!coordinator.Password.equals(password)) {
+                                                                    Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
+                                                                } else {
+                                                                    Toast.makeText(getApplicationContext(), "Hello " + coordinator.Name, Toast.LENGTH_SHORT).show();
+                                                                    Intent nextPage = new Intent(getApplicationContext(), AdminActivity.class);
+                                                                    nextPage.putExtra("coordinator", coordinator);
+                                                                    startActivity(nextPage);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                });
+
+                                    } else {
+                                        Log.w("Login", "Error Logging in.", task.getException());
                                     }
                                 }
                             });
