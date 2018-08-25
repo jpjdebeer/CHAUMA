@@ -1,6 +1,7 @@
 package com.cput.chauma;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -8,11 +9,21 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import static com.cput.chauma.AESCrypt.encrypt;
 
 /**
  * Edit accounts for the registered peer educators
@@ -26,11 +37,14 @@ public class EditAccountActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    private Coordinator coordinator;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_account_activity);
+        coordinator = (Coordinator) getIntent().getSerializableExtra("coordinator");
 
         toolbar = findViewById(R.id.navigation_action_bar);
         setSupportActionBar(toolbar);
@@ -76,6 +90,160 @@ public class EditAccountActivity extends AppCompatActivity {
             }
         });
 
+        Button addUser = findViewById(R.id.btnAddUser); //to home page
+        addUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    EditText txtNewUserName = findViewById(R.id.txtNewUserName);
+                    EditText txtNewUserSurnamme =  findViewById(R.id.txtNewUserSurnamme);
+                    EditText txtNewUsername =  findViewById(R.id.txtNewUsername);
+                    EditText txtNewUserPassword =  findViewById(R.id.txtNewUserPassword);
+                    EditText txtConfirmPassword =  findViewById(R.id.txtConfirmPassword);
+
+                    if(txtNewUserPassword.getText().toString().equals(txtConfirmPassword.getText().toString())){
+                        PeerEducatorAdd peerEducatorAdd = new PeerEducatorAdd();
+                        String password = encrypt(txtNewUserPassword.getText().toString());
+                        peerEducatorAdd.EmailAddress = txtNewUsername.getText().toString();
+                        peerEducatorAdd.Name = txtNewUserName.getText().toString();
+                        peerEducatorAdd.Surname = txtNewUserSurnamme.getText().toString();
+                        peerEducatorAdd.Password = password;
+                        peerEducatorAdd.IsAuthorised = true;
+
+                        db
+                                .collection("PeerEducator")
+                                .document(peerEducatorAdd.EmailAddress)
+                                .set(peerEducatorAdd, SetOptions.merge());
+                        Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
+
+
+                        SendEmail(txtNewUserName.getText().toString(), txtNewUserSurnamme.getText().toString(), txtNewUsername.getText().toString(), txtNewUserPassword.getText().toString(), "NEW");
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
+
+                }
+                catch (Exception e){
+                    Log.w("Failed Peer Counselor", "Error adding document", e);
+                }
+            }
+        });
+
+        Button saveChange = findViewById(R.id.btnSaveChange); //to home page
+        saveChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    EditText txtChangeUsername = findViewById(R.id.txtChangeUsername);
+                    EditText txtChangeUserPassword =  findViewById(R.id.txtChangeUserPassword);
+                    EditText txtConfirmChangePassword =  findViewById(R.id.txtConfirmChangePassword);
+
+                    if(txtChangeUserPassword.getText().toString().equals(txtConfirmChangePassword.getText().toString())){
+                        PeerEducatorEdit peerEducatorEdit = new PeerEducatorEdit();
+                        String password = encrypt(txtChangeUserPassword.getText().toString());
+                        peerEducatorEdit.EmailAddress = txtChangeUsername.getText().toString();
+                        peerEducatorEdit.Password = password;
+
+                        db
+                                .collection("PeerEducator")
+                                .document(peerEducatorEdit.EmailAddress)
+                                .set(peerEducatorEdit, SetOptions.merge());
+                        Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
+
+
+                        SendEmail("", "", txtChangeUsername.getText().toString(), txtChangeUserPassword.getText().toString(), "UPDATE");
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
+
+                }
+                catch (Exception e){
+                    Log.w("Failed Peer Counselor", "Error adding document", e);
+                }
+            }
+        });
+
+        Button btnDeleteUser = findViewById(R.id.btnDeleteUser); //to home page
+        btnDeleteUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    EditText txtDeleteUser = findViewById(R.id.txtDeleteUser);
+
+                        PeerEducatorDelete peerEducatorDelete = new PeerEducatorDelete();
+                    peerEducatorDelete.EmailAddress = txtDeleteUser.getText().toString();
+
+                        db
+                                .collection("PeerEducator")
+                                .document(peerEducatorDelete.EmailAddress)
+                                .delete();
+                        Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
+
+
+                        SendEmail("", "", txtDeleteUser.getText().toString(), "", "DELETE");
+
+                }
+                catch (Exception e){
+                    Log.w("Failed Peer Counselor", "Error deleting document", e);
+                }
+            }
+        });
+
+    }
+
+    private void SendEmail(String name, String surname, String email, String password, String action) {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        Log.i("Send email", "");
+        String[] TO = {email};
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/html");
+        String subject = "", body = "";
+
+        switch (action) {
+            case "NEW":
+                subject = "Welcome Peer Educator!";
+                body = "<h1>You are now a Peer Educator</h1>" +
+                        "<h2>Here are your details you can use to login:</h2>" +
+                        "<br/>Username: "+email+
+                        "<br/><strong>Password: "+password+"</strong>"+
+                        "<h2>Here are the rest of your details:</h2>" +
+                        "<br/>Name: "+name+
+                        "<br/>Surname: "+surname+
+                        "<br/><br/>"+
+                        "Kind regards,<br/>"+
+                        coordinator.Name;
+                break;
+            case "UPDATE":
+                subject = "Peer Educator your account has been updated";
+                body = "<h1>Here are your new details</h1>" +
+                        "<br/>Username: "+email+
+                        "<br/><strong>Password: "+password+"</strong>"+
+                        "<br/><br/>"+
+                        "Kind regards,<br/>"+
+                        coordinator.Name;
+                break;
+                default:
+                    subject = "Peer Educator your account has been deleted";
+                    body = "<h1>We are sad to see you go</h1>" +
+                            "<h2>Feel free to come back whenever you want :)</h2>"+
+                            "<br/><br/>"+
+                            "Kind regards,<br/>"+
+                            coordinator.Name;
+                    break;
+
+        }
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(body));
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished with email...", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            //Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
