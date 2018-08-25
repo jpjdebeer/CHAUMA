@@ -1,6 +1,7 @@
 package com.cput.chauma;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,15 +20,9 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -113,24 +108,27 @@ public class GetInvolveActivity extends AppCompatActivity {
                    RadioButton rdbMale =  findViewById(R.id.rdbMale);
                    RadioButton rdbFemale =  findViewById(R.id.rdbFemale);
 
-                   PeerCounselor peerCounselor = new PeerCounselor();
-                   peerCounselor.ContactNumber = txtPeerContactNumber.getText().toString();
-                   peerCounselor.Course = txtPeerCourse.getText().toString();
-                   peerCounselor.EmailAddress = txtPeerEmailAddress.getText().toString();
-                   peerCounselor.Gender = rdbFemale.isChecked() ? rdbFemale.getText().toString() : rdbMale.isChecked() ? rdbMale.getText().toString() : "Private";
-                   peerCounselor.IdNumber = txtPeerIdNumber.getText().toString();
-                   peerCounselor.Name = txtPeerName.getText().toString();
-                   peerCounselor.Surname = txtPeerSurname.getText().toString();
-                   peerCounselor.YearOfStudy = txtPeerYearOfStudy.getText().toString();
-                   peerCounselor.StudentNumber = txtPeerStudentNumber.getText().toString();
+                   PeerEducator peerEducator = new PeerEducator();
+                   peerEducator.ContactNumber = txtPeerContactNumber.getText().toString();
+                   peerEducator.Course = txtPeerCourse.getText().toString();
+                   peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
+                   peerEducator.Gender = rdbFemale.isChecked() ? rdbFemale.getText().toString() : rdbMale.isChecked() ? rdbMale.getText().toString() : "Private";
+                   peerEducator.IdNumber = txtPeerIdNumber.getText().toString();
+                   peerEducator.Name = txtPeerName.getText().toString();
+                   peerEducator.Surname = txtPeerSurname.getText().toString();
+                   peerEducator.YearOfStudy = txtPeerYearOfStudy.getText().toString();
+                   peerEducator.StudentNumber = txtPeerStudentNumber.getText().toString();
+                   peerEducator.Password = "";
+                   peerEducator.IsAuthorised = false;
 
                    db
-                           .collection("PeerCounselor")
-                           .document(peerCounselor.EmailAddress)
-                           .set(peerCounselor, SetOptions.merge());
+                           .collection("PeerEducator")
+                           .document(peerEducator.EmailAddress)
+                           .set(peerEducator, SetOptions.merge());
                    openActivity("HomeActivity");
-                   Toast.makeText(getApplicationContext(), "Thank you!  Our Coordinator will contact you.", Toast.LENGTH_SHORT).show();
 
+                   SendEmail(peerEducator);
+                   Toast.makeText(getApplicationContext(), "Thank you!  Our Coordinator will contact you.", Toast.LENGTH_SHORT).show();
                }
                catch (Exception e){
                    Log.w("Failed Peer Counselor", "Error adding document", e);
@@ -140,6 +138,24 @@ public class GetInvolveActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void SendEmail(PeerEducator peerEducator) {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        Log.i("Send email", "");
+        String[] TO = {"jarrod.moura@gmail.com"};
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, peerEducator.Name + " wants to be a Peer Educator!");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Coordinator.  I am interested in becoming a Peer Educator.  Please can you send me login details.");
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished with email...", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            //Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
