@@ -18,12 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/brochurePdfView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="BROCHURE ACTIVITY"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
     <!--Adding the side navigation view with the list of toolbar_options items-->
