@@ -18,6 +18,7 @@ public class AESCrypt {
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte [] encryptedByteValue = cipher.doFinal(value.getBytes("utf-8"));
         String encryptedValue64 = Base64.encodeToString(encryptedByteValue, Base64.DEFAULT);
+        encryptedValue64 = encryptedValue64.replace("\n","");
         return encryptedValue64;
 
     }

@@ -8,11 +8,25 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.Serializable;
+
+import static com.cput.chauma.AESCrypt.encrypt;
 
 /**
  * Login screen
@@ -26,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +88,56 @@ public class LoginActivity extends AppCompatActivity {
                         openActivity("ContactActivity");break;
                 }
                 return true;
+            }
+        });
+
+        Button apply = findViewById(R.id.btnLogin); //to home page
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    EditText txtUsername = findViewById(R.id.txtUsername);
+                    EditText txtPassword =  findViewById(R.id.txtPassword);
+
+                    final String password = encrypt(txtPassword.getText().toString());
+
+                    db.collection("PeerEducator")
+                            .whereEqualTo("EmailAddress", txtUsername.getText().toString())
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        if (task.getResult() == null)
+                                            Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
+
+                                        if (task.getResult() != null) {
+                                            for (DocumentSnapshot document : task.getResult()) {
+                                                ObjectMapper mapper = new ObjectMapper();
+                                                PeerEducator peerEducator = mapper.convertValue(document.getData(), PeerEducator.class);
+                                                if(!peerEducator.Password.equals(password))
+                                                {
+                                                    Toast.makeText(getApplicationContext(), "Username or password was incorrect", Toast.LENGTH_SHORT).show();
+                                                }
+                                                else {
+                                                    Toast.makeText(getApplicationContext(), "Hello " + peerEducator.Name, Toast.LENGTH_SHORT).show();
+                                                    Intent nextPage = new Intent(getApplicationContext(), PeerEducatorActivity.class);
+                                                    nextPage.putExtra("peerEducator", peerEducator);
+                                                    startActivity(nextPage);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    else {
+                                        Log.w("Search", "Error getting documents.", task.getException());
+                                    }
+                                }
+                            });
+                }
+                catch (Exception e){
+                    Log.w("Failed Peer Counselor", "Error adding document", e);
+                }
             }
         });
 

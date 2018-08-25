@@ -1,8 +1,8 @@
 package com.cput.chauma;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class PeerEducator {
+public class PeerEducator implements Serializable {
     /**
      * Peer Counselor is the property that should be used when reading and writing to database
      */
