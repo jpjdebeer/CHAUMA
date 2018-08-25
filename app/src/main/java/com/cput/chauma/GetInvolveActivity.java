@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,11 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.Objects;
@@ -39,6 +44,7 @@ public class GetInvolveActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String coordinatorEmail;
 
 
     @Override
@@ -91,6 +97,27 @@ public class GetInvolveActivity extends AppCompatActivity {
                 return true;
             }
         });
+        db.collection("Coordinator")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            if (task.getResult() == null)
+                                Toast.makeText(getApplicationContext(), "Unable to retrieve Coordinator Email.", Toast.LENGTH_SHORT).show();
+
+                            if (task.getResult() != null) {
+                                for (DocumentSnapshot document : task.getResult()) {
+                                    coordinatorEmail = document.getId().toString();
+                                }
+                            }
+                        }
+
+                        else {
+                            Log.w("Search", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
 
         Button apply = findViewById(R.id.btnPeerApply); //to home page
         apply.setOnClickListener(new View.OnClickListener() {
@@ -143,12 +170,24 @@ public class GetInvolveActivity extends AppCompatActivity {
     private void SendEmail(PeerEducator peerEducator) {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         Log.i("Send email", "");
-        String[] TO = {"jarrod.moura@gmail.com"};
+        String[] TO = {coordinatorEmail};
         emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
+        emailIntent.setType("text/html");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, peerEducator.Name + " wants to be a Peer Educator!");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Coordinator.  I am interested in becoming a Peer Educator.  Please can you send me login details.");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(
+                "<h1>Peer Educator Request</h1>" +
+                "<br/>Name: "+peerEducator.Name+
+                "<br/>Surname: "+peerEducator.Surname+
+                "<br/>Gender: "+peerEducator.Gender+
+                "<br/>Identity Number: "+peerEducator.IdNumber+
+                "<br/>Contact Number: "+peerEducator.ContactNumber+
+                "<br/>Email Address: "+peerEducator.EmailAddress+
+                "<br/>Student Number: "+peerEducator.StudentNumber+
+                "<br/>Course: "+peerEducator.Course+
+                "<br/>Year: "+peerEducator.YearOfStudy
+                        ));
+
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             finish();
