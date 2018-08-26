@@ -27,12 +27,13 @@ public class PeerEducatorActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    private PeerEducator peerEducator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.peer_educator_activity);
-
+        peerEducator = (PeerEducator) getIntent().getSerializableExtra("peerEducator");
         toolbar = findViewById(R.id.navigation_action_bar);
         setSupportActionBar(toolbar);
 

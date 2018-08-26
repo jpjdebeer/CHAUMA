@@ -30,11 +30,13 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
     private CardView editAccount, setEvent;
+    private Coordinator coordinator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_activity);
+        coordinator = (Coordinator) getIntent().getSerializableExtra("coordinator");
 
         toolbar = findViewById(R.id.navigation_action_bar);
         setSupportActionBar(toolbar);
@@ -92,10 +94,15 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.editAccount:
-                startActivity(new Intent(this, EditAccountActivity.class));
+                Intent editAccount = new Intent(getApplicationContext(), EditAccountActivity.class);
+                editAccount.putExtra("coordinator", coordinator);
+                startActivity(editAccount);
+
                 finish();break;
             case R.id.setEvent:
-                startActivity(new Intent(this, SetEventActivity.class));
+                Intent setEvent = new Intent(getApplicationContext(), SetEventActivity.class);
+                setEvent.putExtra("coordinator", coordinator);
+                startActivity(setEvent);
                 finish();break;
             default:break;
         }
