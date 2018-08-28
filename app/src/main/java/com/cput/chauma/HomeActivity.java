@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         openActivity("HomeActivity");break;
                     case R.id.clinic:
                         Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicActivity");break;
+                        openActivity("ClinicsActivity");break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
                         openActivity("BrochureActivity");break;
@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.homeClinicOption:
-                startActivity(new Intent(this, ClinicActivity.class));
+                startActivity(new Intent(this, ClinicsActivity.class));
                 finish();break;
             case R.id.homeBrochureOption:
                 startActivity(new Intent(this, BrochureActivity.class));
@@ -153,9 +153,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent homeActivity = new Intent(HomeActivity.this, HomeActivity.class);
                 startActivity(homeActivity);
                 finish();break;
-            case "ClinicActivity":
-                Intent clinicActivity = new Intent(HomeActivity.this, ClinicActivity.class);
-                startActivity(clinicActivity);
+            case "ClinicsActivity":
+                Intent clinicsActivity = new Intent(HomeActivity.this, ClinicsActivity.class);
+                startActivity(clinicsActivity);
                 finish();break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(HomeActivity.this, BrochureActivity.class);

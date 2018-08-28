@@ -56,8 +56,8 @@ public class PeerEducatorActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
                         openActivity("HomeActivity");break;
                     case R.id.clinic:
-                        Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicActivity");break;
+                        Toast.makeText(getApplicationContext(), "Clinics", Toast.LENGTH_SHORT).show();
+                        openActivity("ClinicsActivity");break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
                         openActivity("BrochureActivity");break;
@@ -106,9 +106,9 @@ public class PeerEducatorActivity extends AppCompatActivity {
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
                 finish();break;
-            case "ClinicActivity":
-                Intent clinicActivity = new Intent(this, ClinicActivity.class);
-                startActivity(clinicActivity);
+            case "ClinicsActivity":
+                Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
+                startActivity(clinicsActivity);
                 finish();break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(this, BrochureActivity.class);
