@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "370874823767",
+    "firebase_url": "https://chauma-2e2f3.firebaseio.com",
+    "project_id": "chauma-2e2f3",
+    "storage_bucket": "chauma-2e2f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370874823767:android:7ca763856f07eef2",
+        "android_client_info": {
+          "package_name": "com.cput.chauma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370874823767-fjjqljnleg7168e6f1h3rcrk072t9lnn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cput.chauma",
+            "certificate_hash": "08b2c66651bbd167d6048302e3c9287cc68e7a64"
+          }
+        },
+        {
+          "client_id": "370874823767-svv6o2ceep7on6aavc1vmobog7f36qc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDakHrg1myiTGThP1F4Z2GOpBLR2LrACJ0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370874823767-svv6o2ceep7on6aavc1vmobog7f36qc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

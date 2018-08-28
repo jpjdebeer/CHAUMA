@@ -26,11 +26,13 @@ public class SetEventActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    private Coordinator coordinator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_event_activity);
+        coordinator = (Coordinator) getIntent().getSerializableExtra("coordinator");
 
         toolbar = findViewById(R.id.navigation_action_bar);
         setSupportActionBar(toolbar);

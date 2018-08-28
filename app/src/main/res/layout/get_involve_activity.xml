@@ -39,7 +39,7 @@
                     android:text="@string/become_a_peer_educator"
                     android:textColor="@color/purple"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="25sp"/>
 
                 <TextView
                     android:layout_marginTop="10dp"
@@ -47,9 +47,11 @@
                     android:layout_marginRight="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
+                    android:gravity="start"
+                    android:textSize="15sp"
                     android:text="@string/what_do_peer_educators_do"
-                    android:textColor="@color/darkBlue"/>
+                    android:textColor="@color/darkBlue"
+                    tools:ignore="RtlHardcoded" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -57,9 +59,9 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:gravity="top|left"
+                    android:gravity="top|start"
                     android:text="@string/definition"
-                    android:textSize="10sp" />
+                    android:textSize="15sp" />
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
@@ -220,14 +222,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/darkBlue"
+                    android:onClick="onClick"
                     android:text="@string/apply"
                     android:textColor="#fff"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 

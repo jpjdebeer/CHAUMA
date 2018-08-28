@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 /**
  * This screen will display all the options or actions a user can do.
@@ -29,9 +30,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
     private CardView clinicCard, brochureCard, eventsCard, faqCard, getInvolved, contactsCard;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 
@@ -79,12 +81,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        clinicCard = (CardView) findViewById(R.id.homeClinicOption);
-        brochureCard = (CardView) findViewById(R.id.homeBrochureOption);
-        eventsCard = (CardView) findViewById(R.id.homeEventOption);
-        faqCard = (CardView) findViewById(R.id.homeFaqOption);
-        getInvolved = (CardView) findViewById(R.id.homeGetInvolveOption);
-        contactsCard = (CardView) findViewById(R.id.homeContactsOption);
+        clinicCard = findViewById(R.id.homeClinicOption);
+        brochureCard = findViewById(R.id.homeBrochureOption);
+        eventsCard = findViewById(R.id.homeEventOption);
+        faqCard = findViewById(R.id.homeFaqOption);
+        getInvolved = findViewById(R.id.homeGetInvolveOption);
+        contactsCard = findViewById(R.id.homeContactsOption);
 
         clinicCard.setOnClickListener(this);
         brochureCard.setOnClickListener(this);
@@ -102,7 +104,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, ClinicActivity.class));
                 finish();break;
             case R.id.homeBrochureOption:
-                startActivity(new Intent(this, PeerEducatorActivity.class));//(new Intent(this, BrochureActivity.class));
+                startActivity(new Intent(this, BrochureActivity.class));
                 finish();break;
             case R.id.homeEventOption:
                 startActivity(new Intent(this, EventActivity.class));

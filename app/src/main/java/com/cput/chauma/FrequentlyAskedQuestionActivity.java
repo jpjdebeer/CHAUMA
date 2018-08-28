@@ -10,9 +10,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.github.barteksc.pdfviewer.PDFView;
 
 /**
  * Frequently Asked Questions
@@ -26,6 +29,7 @@ public class FrequentlyAskedQuestionActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
+    PDFView pdfView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +80,20 @@ public class FrequentlyAskedQuestionActivity extends AppCompatActivity {
             }
         });
 
+        pdfView = findViewById(R.id.faqPdfView);
+        pdfView.fromAsset("faq.pdf").defaultPage(1).load();
+
+        Button askQuestionButton = (Button)findViewById(R.id.btnAskQuestion);
+        askQuestionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FrequentlyAskedQuestionActivity.this, AskQuestionActivity.class));
+                finish();
+            }
+        });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

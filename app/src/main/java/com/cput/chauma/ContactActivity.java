@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.example.shaun.chauma.R;
 
 /**
@@ -52,32 +51,37 @@ public class ContactActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
-                        openActivity("HomeActivity");break;
+                        openActivity("HomeActivity");
+                        break;
                     case R.id.clinic:
                         Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicActivity");break;
+                        openActivity("ClinicActivity");
+                        break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
-                        openActivity("BrochureActivity");break;
+                        openActivity("BrochureActivity");
+                        break;
                     case R.id.events:
                         Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
-                        openActivity("EventActivity");break;
+                        openActivity("EventActivity");
+                        break;
                     case R.id.faq:
                         Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
-                        openActivity("FrequentlyAskedQuestionActivity");break;
+                        openActivity("FrequentlyAskedQuestionActivity");
+                        break;
                     case R.id.getInvolve:
                         Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
-                        openActivity("GetInvolveActivity");break;
+                        openActivity("GetInvolveActivity");
+                        break;
                     case R.id.contacts:
                         Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
-                        openActivity("ContactActivity");break;
+                        openActivity("ContactActivity");
+                        break;
                 }
                 return true;
             }
         });
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_options, menu);
