@@ -80,7 +80,7 @@
                                 android:layout_marginTop="5dp"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="2dp"
-                                android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                android:text="Create, Reade, Update and Delete the account for a peer educator" />
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
@@ -132,7 +132,7 @@
                                 android:layout_marginTop="5dp"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="2dp"
-                                android:text="Xxxxxx xxxx xx xxxxxx xxxx xxxxxxxxx xxxxxxxxxxxx xxxxxxx" />
+                                android:text="Set an event for the CPUT/HIV Unit for the next that will viewed and attended evetyone. This event must be sent to the peer educators if they must attend as well"/>
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
