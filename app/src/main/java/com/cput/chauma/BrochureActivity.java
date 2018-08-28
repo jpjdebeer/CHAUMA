@@ -87,9 +87,8 @@ public class BrochureActivity extends AppCompatActivity {
         });
 
         pdfView = (PDFView)findViewById(R.id.brochurePdfView);
-        //pdfView.fromAsset("status_update_feb2017.pdf").defaultPage(1).load();
-
-        new RetrievePDFStream().execute("https://www.cput.ac.za/storage/students/hiv/newsletter/status_update_feb2017.pdf");
+        pdfView.fromAsset("status_update_feb2017.pdf").defaultPage(1).load();
+        // new RetrievePDFStream().execute("https://www.cput.ac.za/storage/students/hiv/newsletter/status_update_feb2017.pdf");
 
 
     }
