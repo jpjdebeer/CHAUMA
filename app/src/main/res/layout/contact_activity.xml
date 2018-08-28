@@ -1,9 +1,760 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cput.chauma.ContactActivity">
+    tools:context="com.cput.chauma.HomeActivity"
+    android:id="@+id/contactActivityDrawerLayout">
 
-</android.support.constraint.ConstraintLayout>
+    <!--All content/design will be inside this layout-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--We are including the navigation actionbar we created-->
+        <include layout="@layout/navigation_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="#00FFFF">
+
+            <!--Layout that will contain all the layouts for individual CardViews-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--CPUT HIV/AIDS UNIT-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/gray">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cput_hiv_aids_unit"
+                            android:textSize="15dp"
+                            android:textColor="@color/red"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"/>
+
+                        <!--Cape Town-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/cape_town"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="47dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="@string/_27_21_460_425_3"/>
+                        </LinearLayout>
+
+                        <!--Bellville-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/bellville"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="68dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="+27 21 959 2868"/>
+                        </LinearLayout>
+
+                        <!--Wellington-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="Wellington"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="49dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="+27 21 864 5268"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--CPUT DISABILITY UNIT-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/gray">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cput_disability_unit"
+                            android:textSize="15dp"
+                            android:textColor="@color/red"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"/>
+
+                        <!--Cape Town-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/cape_town"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="46dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="+27 21 460 9071"/>
+                        </LinearLayout>
+
+                        <!--part of Cape town details-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="121dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="disabilityunit@cput.ac.za"/>
+                        </LinearLayout>
+
+                        <!--Bellville-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/bellville"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="68dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="+27 21 959 6964"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--CPUT CAMPUS CLINIC-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/gray">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cput_campus_clinic"
+                            android:textSize="15dp"
+                            android:textColor="@color/red"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"/>
+
+                        <!--All the design is in this layout-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/cape_town"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <!--Contact Number-->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/midBlue"
+                                    android:textSize="15dp"
+                                    android:text="+27 21 460 3405"/>
+                            </LinearLayout>
+
+                            <!--Room-->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/ic_home_black_menu_24dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/midBlue"
+                                    android:textSize="15dp"
+                                    android:text="Administration Building, Level 2, Room 2.900"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:textSize="15dp"
+                                android:text="@string/bellville"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <!--Contact Number-->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/midBlue"
+                                    android:textSize="15dp"
+                                    android:text="+27 21 959 6403"/>
+                            </LinearLayout>
+
+                            <!--Room-->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/ic_home_black_menu_24dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/midBlue"
+                                    android:textSize="15dp"
+                                    android:text="New Library Extension, Ground floor"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--STUDENT COUNSELLING-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/gray">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/student_counselling"
+                            android:textSize="15dp"
+                            android:textColor="@color/red"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"/>
+
+                        <!--Cape Town-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/cape_town"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="46dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="+27 21 460 3237"/>
+                        </LinearLayout>
+
+                        <!--part of Cape town details-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="121dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="oliveran@cput.ac.za"/>
+                        </LinearLayout>
+
+                        <!--Bellville-->
+                        <LinearLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="@string/bellville"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="68dp"
+                                android:src="@drawable/ic_contact_phone_black_24dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:textSize="15dp"
+                                android:text="+27 21 959 6182"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--OTHER CONTACTS-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/paleGreen">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/other_contacts"
+                            android:textSize="15dp"
+                            android:textColor="@color/red"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:paddingTop="3dp"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"/>
+
+                        <!--Lifeline-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="Lifeline"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="145dp"
+                                android:textSize="15dp"
+                                android:text="0117 252 001"/>
+                        </LinearLayout>
+
+                        <!--SADAG-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="SADAG"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="145dp"
+                                android:textSize="15dp"
+                                android:text="0800 567 567"/>
+                        </LinearLayout>
+
+                        <!--SANCA-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="SANCA"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="145dp"
+                                android:textSize="15dp"
+                                android:text="086 17 2622 "/>
+                        </LinearLayout>
+
+                        <!--Rape Crisis-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="Rape Crisis"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="117dp"
+                                android:textSize="15dp"
+                                android:text="0214 471 467"/>
+                        </LinearLayout>
+
+                        <!--All emergency-->
+                        <LinearLayout
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="All emergency"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="94dp"
+                                android:textSize="15dp"
+                                android:text="10111"/>
+                        </LinearLayout>
+
+                        <!--General enquiries-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="General equiries"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="82dp"
+                                android:textSize="15dp"
+                                android:text="1204"/>
+                        </LinearLayout>
+
+                        <!--National AIDS Helpline-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="National AIDS Helpline"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="40dp"
+                                android:textSize="15dp"
+                                android:text="0800 012 322"/>
+                        </LinearLayout>
+
+                        <!--National HIV HCW Hotline-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="National HIV HCW Hotline"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="20dp"
+                                android:textSize="15dp"
+                                android:text="0800 212 506"/>
+                        </LinearLayout>
+
+                        <!--Suicide Helpline(Toll free)-->
+                        <LinearLayout
+                            android:paddingTop="2dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:text="Suicide Helpline(Toll free)"
+                                android:textStyle="bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/midBlue"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginStart="18dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="15dp"
+                                android:text="0800 708 090"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!--Adding the side navigation view with the list of toolbar_options items-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigationViewLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/navigation_header"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

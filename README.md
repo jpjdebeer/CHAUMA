@@ -3,11 +3,11 @@ CPUT HIV/AIDS Unit Mobile Application (CHAUMA)
 
 <h3>Team</h3>
 <ul>
-<li>Jacob De Beer       <i>- Project leader</i></li>
+<li>Jaco De Beer        <i>- Project leader / programmer</i></li>
 <li>Banele Mlamleli     <i>- Lead programmer</i></li>
-<li>Shaun Donnely       <i>- Programmer</i></li>
-<li>Nelson Mpyana       <i>- Programmer</i></li>
 <li>Kelvin Van Sittert  <i>- Programmer</i></li>
+<li>Nelson Mpyana       <i>- Quality Assurer</i></li>
+<li>Shaun Donnely       <i>- Technical documentation</i></li>
 <li>Simone Temmers      <i>- Technical documentation / UX Designer</i></li>
 </ul>
 
@@ -53,24 +53,11 @@ The user accounts will allow the coordinators to communicate tasks to the indivi
 
 <hr>
 
-<p>These are the main colour that will be used throughout this Application as they are the colours for CPUT. These colours were obtained from the CPUT official website <a href="http://www.cput.ac.za/">http://www.cput.ac.za/</a></p>
+<p>These are the main colours that will be used throughout this Application as they are the colours for CPUT. These colours were obtained from the CPUT official website <a href="http://www.cput.ac.za/about/brand/colour">CPUT Brand colours</a></p>
 
-<p>043B65<br/>
-rgb(4,59,101)<br/>
-hsl(206,92%,21%)<br/>
-<img src="Wireframes/firstColour.png" width="150" height="30"></p>
-
-<p>0099FF<br/>
-rgb(0,153,255)<br/>
-hsl(204,100%,50%)<br/>
-<img src="Wireframes/secondColour.png" width="150" height="30"></p>
-
-<p>37B1FF<br/>
-rgb(55,177,255)<br/>
-hsl(203,100%,61%)<br/>
-<img src="Wireframes/thirdColour.png" width="150" height="30"></p>
-
-<p>91D3FF<br/>
-rgb(145,211,255)<br/>
-hsl(204,100%,78%)<br/>
-<img src="Wireframes/fourthColour.png" width="150" height="30"></p>
+Dark blue | Mid blue | Sea blue 
+------------ | ------------- | -------------
+003399 | 0099CC | 99CCCC
+rgb(0,102,153) | rgb(0,153,204) | rgb(102,204,204)
+hsl(220,100%,30%) | hsl(195,100%,40%) | hsl(180,33%,70%)
+cmyk(100,51,0,31) | cmyk(100,9,0,6) | cmyk(45,0,10,10)

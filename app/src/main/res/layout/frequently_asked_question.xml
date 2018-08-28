@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cput.chauma.FrequentlyAskedQuestionActivity">
+    tools:context="com.cput.chauma.HomeActivity"
+    android:id="@+id/faqActivityDrawerLayout">
 
-</android.support.constraint.ConstraintLayout>
+    <!--All content/design will be inside this layout-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--We are including the navigation actionbar we created-->
+        <include layout="@layout/navigation_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <Button
+                android:id="@+id/btnAskQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/teal"
+                android:text="ASK A QUESTION"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+        <!--</LinearLayout>-->
+
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <com.github.barteksc.pdfviewer.PDFView
+                    android:id="@+id/faqPdfView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            <!--</LinearLayout>-->
+
+        <!--</ScrollView>-->
+    </LinearLayout>
+
+    <!--Adding the side navigation view with the list of toolbar_options items-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigationViewLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/navigation_header"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
