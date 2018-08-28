@@ -24,8 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.Serializable;
-
 import static com.cput.chauma.AESCrypt.encrypt;
 
 /**
