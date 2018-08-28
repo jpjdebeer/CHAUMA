@@ -27,7 +27,6 @@
         </activity>
         <activity android:name="com.cput.chauma.AdminActivity" />
         <activity android:name="com.cput.chauma.BrochureActivity" />
-        <activity android:name="com.cput.chauma.ClinicActivity" />
         <activity android:name="com.cput.chauma.EditAccountActivity" />
         <activity android:name="com.cput.chauma.EventActivity" />
         <activity android:name="com.cput.chauma.FrequentlyAskedQuestionActivity" />
@@ -58,5 +57,9 @@
             android:name="com.cput.chauma.ClinicsActivity"
             android:label="@string/title_activity_clinics"></activity>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

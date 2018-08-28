@@ -146,7 +146,7 @@ public class BrochureActivity extends AppCompatActivity {
                 startActivity(homeActivity);
                 finish();break;
             case "ClinicsActivity":
-                Intent clinicsActivity = new Intent(this, ClinicActivity.class);
+                Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
                 startActivity(clinicsActivity);
                 finish();break;
             case "BrochureActivity":
