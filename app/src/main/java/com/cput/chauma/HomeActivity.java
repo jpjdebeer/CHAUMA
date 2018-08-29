@@ -102,22 +102,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.homeClinicOption:
                 startActivity(new Intent(this, ClinicsActivity.class));
-                finish();break;
+                //finish();
+                break;
             case R.id.homeBrochureOption:
                 startActivity(new Intent(this, BrochureActivity.class));
-                finish();break;
+                //finish();
+                break;
             case R.id.homeEventOption:
                 startActivity(new Intent(this, EventActivity.class));
-                finish();break;
+                //finish();
+                break;
             case R.id.homeFaqOption:
                 startActivity(new Intent(this, FrequentlyAskedQuestionActivity.class));
-                finish();break;
+                //finish();
+                break;
             case R.id.homeGetInvolveOption:
                 startActivity(new Intent(this, GetInvolveActivity.class));
-                finish();break;
+                //finish();
+                break;
             case R.id.homeContactsOption:
                 startActivity(new Intent(this, ContactActivity.class));
-                finish();break;
+                //finish();
+                break;
             default:break;
         }
     }
@@ -138,11 +144,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
             openActivity("HomeActivity");
-            finish();
+            //finish();
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
             openActivity("LoginActivity");
-            finish();
+            //finish();
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
@@ -152,35 +158,43 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case "HomeActivity":
                 Intent homeActivity = new Intent(HomeActivity.this, HomeActivity.class);
                 startActivity(homeActivity);
-                finish();break;
+                //finish();
+                break;
             case "ClinicsActivity":
                 Intent clinicsActivity = new Intent(HomeActivity.this, ClinicsActivity.class);
                 startActivity(clinicsActivity);
-                finish();break;
+                //finish();
+                break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(HomeActivity.this, BrochureActivity.class);
                 startActivity(brochureActivity);
-                finish();break;
+                //finish();
+                break;
             case "EventActivity":
                 Intent eventActivity = new Intent(HomeActivity.this, EventActivity.class);
                 startActivity(eventActivity);
-                finish();break;
+                //finish();
+                break;
             case "FrequentlyAskedQuestionActivity":
                 Intent faqActivity = new Intent(HomeActivity.this, FrequentlyAskedQuestionActivity.class);
                 startActivity(faqActivity);
-                finish();break;
+                //finish();
+                break;
             case "GetInvolveActivity":
                 Intent getInvolveActivity = new Intent(HomeActivity.this, GetInvolveActivity.class);
                 startActivity(getInvolveActivity);
-                finish();break;
+                //finish();
+                break;
             case "ContactActivity":
                 Intent contactActivity = new Intent(HomeActivity.this, ContactActivity.class);
                 startActivity(contactActivity);
-                finish();break;
+                //finish();
+                break;
             case "LoginActivity":
                 Intent loginActivity = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(loginActivity);
-                finish();break;
+                //finish();
+                break;
         }
     }
 }
