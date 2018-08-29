@@ -54,4 +54,5 @@
     <string name="student_counselling">STUDENT COUNSELLING</string>
     <string name="other_contacts">OTHER CONTACTS</string>
     <string name="title_activity_clinics">Clinics near you</string>
+    <string name="title_activity_clinic">Map</string>
 </resources>

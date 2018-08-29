@@ -2,12 +2,12 @@ package com.cput.chauma;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +19,6 @@ import com.github.barteksc.pdfviewer.PDFView;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -65,7 +64,7 @@ public class BrochureActivity extends AppCompatActivity {
                         openActivity("HomeActivity");break;
                     case R.id.clinic:
                         Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicsActivity");break;
+                        openActivity("ClinicActivity");break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
                         openActivity("BrochureActivity");break;
@@ -145,8 +144,8 @@ public class BrochureActivity extends AppCompatActivity {
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
                 finish();break;
-            case "ClinicsActivity":
-                Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
+            case "ClinicActivity":
+                Intent clinicsActivity = new Intent(this, ClinicActivity.class);
                 startActivity(clinicsActivity);
                 finish();break;
             case "BrochureActivity":
