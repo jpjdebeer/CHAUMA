@@ -136,6 +136,16 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
 
 
     public void onClick(View v){
+        mMap.clear();
+        String clinic="clinic";
+        String url = getUrl(latitude, longitude,clinic);
+        Object dataTransfer[] = new Object[2];
+        dataTransfer[0]=mMap;
+        dataTransfer[1]=url;
+
+        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+        getNearbyPlacesData.execute(dataTransfer);
+        Toast.makeText(ClinicActivity.this,"Showing nearby Clinics", Toast.LENGTH_LONG).show();
 
     }
 
