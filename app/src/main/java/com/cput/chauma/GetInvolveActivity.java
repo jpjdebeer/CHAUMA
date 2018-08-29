@@ -124,6 +124,7 @@ public class GetInvolveActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                try {
+                   boolean validated = true;
                    EditText txtPeerEmailAddress = findViewById(R.id.txtPeerEmailAddress);
                    EditText txtPeerName =  findViewById(R.id.txtPeerName);
                    EditText txtPeerSurname =  findViewById(R.id.txtPeerSurname);
@@ -136,32 +137,64 @@ public class GetInvolveActivity extends AppCompatActivity {
                    RadioButton rdbFemale =  findViewById(R.id.rdbFemale);
 
                    PeerEducator peerEducator = new PeerEducator();
-                   peerEducator.ContactNumber = txtPeerContactNumber.getText().toString();
+                   if(txtPeerContactNumber.getText().toString().length() == 10){
+                       peerEducator.ContactNumber = txtPeerContactNumber.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your contact number is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Course = txtPeerCourse.getText().toString();
-                   peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
+
+                   String email = txtPeerEmailAddress.getText().toString();
+                   String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                   if(email.matches(emailPattern)){
+                       peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Gender = rdbFemale.isChecked() ? rdbFemale.getText().toString() : rdbMale.isChecked() ? rdbMale.getText().toString() : "Private";
-                   peerEducator.IdNumber = txtPeerIdNumber.getText().toString();
+
+                   if(txtPeerIdNumber.getText().toString().length() == 13){
+                       peerEducator.IdNumber = txtPeerIdNumber.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your ID number is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Name = txtPeerName.getText().toString();
                    peerEducator.Surname = txtPeerSurname.getText().toString();
                    peerEducator.YearOfStudy = txtPeerYearOfStudy.getText().toString();
-                   peerEducator.StudentNumber = txtPeerStudentNumber.getText().toString();
+
+                   if(txtPeerStudentNumber.getText().toString().length() == 9){
+                       peerEducator.StudentNumber = txtPeerStudentNumber.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your student number is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Password = "";
                    peerEducator.IsAuthorised = false;
 
-                   db
-                           .collection("PeerEducator")
-                           .document(peerEducator.EmailAddress)
-                           .set(peerEducator, SetOptions.merge());
-                   openActivity("HomeActivity");
+                   if(validated) {
+                       db
+                               .collection("PeerEducator")
+                               .document(peerEducator.EmailAddress)
+                               .set(peerEducator, SetOptions.merge());
+                       openActivity("HomeActivity");
 
-                   SendEmail(peerEducator);
-                   Toast.makeText(getApplicationContext(), "Thank you!  Our Coordinator will contact you.", Toast.LENGTH_SHORT).show();
+                       SendEmail(peerEducator);
+                       Toast.makeText(getApplicationContext(), "Thank you!  Our Coordinator will contact you.", Toast.LENGTH_SHORT).show();
+                   }
                }
                catch (Exception e){
                    Log.w("Failed Peer Counselor", "Error adding document", e);
                }
            }
-       });
+        });
 
 
 
