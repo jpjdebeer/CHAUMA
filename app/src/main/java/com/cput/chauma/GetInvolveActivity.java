@@ -124,6 +124,7 @@ public class GetInvolveActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                try {
+                   boolean validated = true;
                    EditText txtPeerEmailAddress = findViewById(R.id.txtPeerEmailAddress);
                    EditText txtPeerName =  findViewById(R.id.txtPeerName);
                    EditText txtPeerSurname =  findViewById(R.id.txtPeerSurname);
@@ -136,32 +137,64 @@ public class GetInvolveActivity extends AppCompatActivity {
                    RadioButton rdbFemale =  findViewById(R.id.rdbFemale);
 
                    PeerEducator peerEducator = new PeerEducator();
-                   peerEducator.ContactNumber = txtPeerContactNumber.getText().toString();
+                   if(txtPeerContactNumber.getText().toString().length() == 10){
+                       peerEducator.ContactNumber = txtPeerContactNumber.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your contact number is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Course = txtPeerCourse.getText().toString();
-                   peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
+
+                   String email = txtPeerEmailAddress.getText().toString();
+                   String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                   if(email.matches(emailPattern)){
+                       peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Gender = rdbFemale.isChecked() ? rdbFemale.getText().toString() : rdbMale.isChecked() ? rdbMale.getText().toString() : "Private";
-                   peerEducator.IdNumber = txtPeerIdNumber.getText().toString();
+
+                   if(txtPeerIdNumber.getText().toString().length() == 13){
+                       peerEducator.IdNumber = txtPeerIdNumber.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your ID number is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Name = txtPeerName.getText().toString();
                    peerEducator.Surname = txtPeerSurname.getText().toString();
                    peerEducator.YearOfStudy = txtPeerYearOfStudy.getText().toString();
-                   peerEducator.StudentNumber = txtPeerStudentNumber.getText().toString();
+
+                   if(txtPeerStudentNumber.getText().toString().length() == 9){
+                       peerEducator.StudentNumber = txtPeerStudentNumber.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your student number is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+
                    peerEducator.Password = "";
                    peerEducator.IsAuthorised = false;
 
-                   db
-                           .collection("PeerEducator")
-                           .document(peerEducator.EmailAddress)
-                           .set(peerEducator, SetOptions.merge());
-                   openActivity("HomeActivity");
+                   if(validated) {
+                       db
+                               .collection("PeerEducator")
+                               .document(peerEducator.EmailAddress)
+                               .set(peerEducator, SetOptions.merge());
+                       openActivity("HomeActivity");
 
-                   SendEmail(peerEducator);
-                   Toast.makeText(getApplicationContext(), "Thank you!  Our Coordinator will contact you.", Toast.LENGTH_SHORT).show();
+                       SendEmail(peerEducator);
+                       Toast.makeText(getApplicationContext(), "Thank you!  Our Coordinator will contact you.", Toast.LENGTH_SHORT).show();
+                   }
                }
                catch (Exception e){
                    Log.w("Failed Peer Counselor", "Error adding document", e);
                }
            }
-       });
+        });
 
 
 
@@ -190,7 +223,7 @@ public class GetInvolveActivity extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
+            //finish();
             Log.i("Finished with email...", "");
         } catch (android.content.ActivityNotFoundException ex) {
             //Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
@@ -208,11 +241,11 @@ public class GetInvolveActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
             openActivity("HomeActivity");
-            finish();
+            //finish();
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
             openActivity("LoginActivity");
-            finish();
+            //finish();
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
@@ -222,35 +255,43 @@ public class GetInvolveActivity extends AppCompatActivity {
             case "HomeActivity":
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
-                finish();break;
+                //finish();
+                break;
             case "ClinicsActivity":
                 Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
                 startActivity(clinicsActivity);
-                finish();break;
+                //finish();
+                break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(this, BrochureActivity.class);
                 startActivity(brochureActivity);
-                finish();break;
+                //finish();
+                break;
             case "EventActivity":
                 Intent eventActivity = new Intent(this, EventActivity.class);
                 startActivity(eventActivity);
-                finish();break;
+                //finish();
+                break;
             case "FrequentlyAskedQuestionActivity":
                 Intent faqActivity = new Intent(this, FrequentlyAskedQuestionActivity.class);
                 startActivity(faqActivity);
-                finish();break;
+                //finish();
+                break;
             case "GetInvolveActivity":
                 Intent getInvolveActivity = new Intent(this, GetInvolveActivity.class);
                 startActivity(getInvolveActivity);
-                finish();break;
+                //finish();
+                break;
             case "ContactActivity":
                 Intent contactActivity = new Intent(this, ContactActivity.class);
                 startActivity(contactActivity);
-                finish();break;
+                //finish();
+                break;
             case "LoginActivity":
                 Intent loginActivity = new Intent(this, LoginActivity.class);
                 startActivity(loginActivity);
-                finish();break;
+                //finish();
+                break;
         }
     }
 }

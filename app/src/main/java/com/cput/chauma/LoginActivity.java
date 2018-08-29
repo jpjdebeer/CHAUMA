@@ -174,11 +174,11 @@ public class LoginActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
             openActivity("HomeActivity");
-            finish();
+            //finish();
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
             openActivity("LoginActivity");
-            finish();
+            //finish();
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
@@ -188,35 +188,43 @@ public class LoginActivity extends AppCompatActivity {
             case "HomeActivity":
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
-                finish();break;
+                //finish();
+                break;
             case "ClinicsActivity":
                 Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
                 startActivity(clinicsActivity);
-                finish();break;
+                //finish();
+                break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(this, BrochureActivity.class);
                 startActivity(brochureActivity);
-                finish();break;
+                //finish();
+                break;
             case "EventActivity":
                 Intent eventActivity = new Intent(this, EventActivity.class);
                 startActivity(eventActivity);
-                finish();break;
+                //finish();
+                break;
             case "FrequentlyAskedQuestionActivity":
                 Intent faqActivity = new Intent(this, FrequentlyAskedQuestionActivity.class);
                 startActivity(faqActivity);
-                finish();break;
+                //finish();
+                break;
             case "GetInvolveActivity":
                 Intent getInvolveActivity = new Intent(this, GetInvolveActivity.class);
                 startActivity(getInvolveActivity);
-                finish();break;
+                //finish();
+                break;
             case "ContactActivity":
                 Intent contactActivity = new Intent(this, ContactActivity.class);
                 startActivity(contactActivity);
-                finish();break;
+                //finish();
+                break;
             case "LoginActivity":
                 Intent loginActivity = new Intent(this, LoginActivity.class);
                 startActivity(loginActivity);
-                finish();break;
+                //finish();
+                break;
         }
     }
 }
