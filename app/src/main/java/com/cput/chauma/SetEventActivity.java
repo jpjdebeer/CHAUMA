@@ -50,7 +50,6 @@ public class SetEventActivity extends AppCompatActivity {
     private Coordinator coordinator;
     private ArrayList<PeerEducator> peerEducators;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private ArrayList<PeerEducator> peerEducators1;
     CalendarView simpleCalendarView;
     int dayOfMonth, monthOfYear, yearOfLife;
 
@@ -72,7 +71,6 @@ public class SetEventActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);    //removing the title name(in this case is was the app name)
-
 
         peerEducators = new ArrayList<PeerEducator>();
         db.collection("PeerEducator")
@@ -123,11 +121,32 @@ public class SetEventActivity extends AppCompatActivity {
                     event.EventName = "The name of the event";
                     SimpleDateFormat outputFormatter = new SimpleDateFormat("yyyy-mm-dd");
                     event.EventDate = yearOfLife + "-" + monthOfYear + "-" + dayOfMonth;
+                    event.EventCoordinatorEmail = coordinator.EmailAddress;
 
                     db
                             .collection("Events")
                             .document(event.EventDate)
                             .set(event, SetOptions.merge());
+
+                    for (PeerEducator peerEducator: peerEducators) {
+                        try {
+                            EventInvitation invitation = new EventInvitation();
+                            invitation.EventCoordinator = coordinator.Name;
+                            invitation.EventDate = event.EventDate;
+                            invitation.EventDescription = event.EventDescription;
+                            invitation.EventName = event.EventName;
+                            invitation.InvitationStatus = "Pending";
+                            invitation.InviteeEmail = peerEducator.EmailAddress;
+                            invitation.EventCoordinatorEmail = coordinator.EmailAddress;
+                            db
+                                    .collection("EventInvitation")
+                                    .document(event.EventDate + peerEducator.EmailAddress)
+                                    .set(invitation, SetOptions.merge());
+                        }
+                        catch(Exception ex){
+                            Log.w("Failed creating inv", "Failed when creating invitation for " + peerEducator.EmailAddress, ex);
+                        }
+                    }
 
                     SendEmail(event);
                     Toast.makeText(getApplicationContext(), "Event has been created!", Toast.LENGTH_SHORT).show();
