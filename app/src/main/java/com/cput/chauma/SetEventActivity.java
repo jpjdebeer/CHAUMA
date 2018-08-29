@@ -29,6 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -50,6 +51,8 @@ public class SetEventActivity extends AppCompatActivity {
     private ArrayList<PeerEducator> peerEducators;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<PeerEducator> peerEducators1;
+    CalendarView simpleCalendarView;
+    int dayOfMonth, monthOfYear, yearOfLife;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,43 +73,7 @@ public class SetEventActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);    //removing the title name(in this case is was the app name)
 
-        final NavigationView navigationView = findViewById(R.id.navigationViewLayout);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
-                        openActivity("HomeActivity");
-                        break;
-                    case R.id.clinic:
-                        Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicsActivity");
-                        break;
-                    case R.id.brochure:
-                        Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
-                        openActivity("BrochureActivity");
-                        break;
-                    case R.id.events:
-                        Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
-                        openActivity("EventActivity");
-                        break;
-                    case R.id.faq:
-                        Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
-                        openActivity("FrequentlyAskedQuestionActivity");
-                        break;
-                    case R.id.getInvolve:
-                        Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
-                        openActivity("GetInvolveActivity");
-                        break;
-                    case R.id.contacts:
-                        Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
-                        openActivity("ContactActivity");
-                        break;
-                }
-                return true;
-            }
-        });
+
         peerEducators = new ArrayList<PeerEducator>();
         db.collection("PeerEducator")
                 .whereEqualTo("IsAuthorised", true)
@@ -132,19 +99,30 @@ public class SetEventActivity extends AppCompatActivity {
                         }
                     }
                 });
+        simpleCalendarView = findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
+        simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+                dayOfMonth = day;
+                yearOfLife = year;
+                monthOfYear = month + 1;
+                // display the selected date by using a toast
+                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+            }
+        });
 
         Button apply = findViewById(R.id.btnSetEvent); //to home page
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    CalendarView simpleCalendarView = findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
                     long selectedDate = simpleCalendarView.getDate(); // get selected date in milliseconds
                     Event event = new Event();
                     event.EventCoordinator = coordinator.Name;
-                    event.EventDate = (new Date(selectedDate * 1000)).toString();
                     event.EventDescription = "The description you provided";
                     event.EventName = "The name of the event";
+                    SimpleDateFormat outputFormatter = new SimpleDateFormat("yyyy-mm-dd");
+                    event.EventDate = yearOfLife + "-" + monthOfYear + "-" + dayOfMonth;
 
                     db
                             .collection("Events")
