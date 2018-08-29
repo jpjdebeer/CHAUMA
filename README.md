@@ -3,11 +3,11 @@ CPUT HIV/AIDS Unit Mobile Application (CHAUMA)
 
 <h3>Team</h3>
 <ul>
-<li>Jaco De Beer        <i>- Project leader</i></li>
+<li>Jaco De Beer        <i>- Project leader / programmer</i></li>
 <li>Banele Mlamleli     <i>- Lead programmer</i></li>
-<li>Shaun Donnely       <i>- Programmer</i></li>
-<li>Nelson Mpyana       <i>- Programmer</i></li>
 <li>Kelvin Van Sittert  <i>- Programmer</i></li>
+<li>Nelson Mpyana       <i>- Quality Assurer</i></li>
+<li>Shaun Donnely       <i>- Technical documentation</i></li>
 <li>Simone Temmers      <i>- Technical documentation / UX Designer</i></li>
 </ul>
 
