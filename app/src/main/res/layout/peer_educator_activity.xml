@@ -41,9 +41,8 @@
                     android:textSize="20sp"/>
 
 
-
                 <EditText
-                    android:id="@+id/txtPeerCourse"
+                    android:id="@+id/txtEventInvitationDetails"
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
                     android:layout_gravity="top|center"
@@ -51,15 +50,15 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/seaBlue"
+                    android:enabled="false"
+                    android:gravity="top|left"
                     android:hint="@string/event_details"
                     android:inputType="text|textMultiLine"
                     android:padding="10dp"
-                    android:gravity="top|left"
-                    android:enabled="false"
                     android:scrollHorizontally="false"
                     android:scrollbars="vertical"
                     android:textColor="#fff"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -101,21 +100,21 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/txtPeerYearOfStudy"
+                    android:id="@+id/txtInvitationResponse"
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
                     android:layout_gravity="top|center"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/seaBlue"
+                    android:gravity="top|left"
                     android:hint="@string/message"
                     android:inputType="text|textMultiLine"
                     android:padding="10dp"
-                    android:gravity="top|left"
                     android:scrollHorizontally="false"
                     android:scrollbars="vertical"
                     android:textColor="#fff"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/btnSend"
