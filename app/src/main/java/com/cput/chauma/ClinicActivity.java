@@ -10,7 +10,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -41,6 +46,11 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
     public static final int REQUEST_Location_code = 99;
     int PROXIMITY_RADIUS =10000;
     double latitude, longitude;
+    private DrawerLayout drawerLayout;  //This is the  layout for the navigation bar
+    private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
+    private Toolbar toolbar;    //This instance is for the navigation toolbar
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +65,15 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+//button
+        Button apply = findViewById(R.id.B_Search); //to home page
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               SearchClinics();
 
-       // Button apply = findViewById(R.id.B_Search); //to home page
-      //  apply.setOnClickListener(new View.OnClickListener() {
-       //     @Override
-       //     public void onClick(View v) {
-       //         SearchClinics();
-      //      }
-       //     });
+           }
+            });
     }
 
     @Override
@@ -134,14 +145,14 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
             currentLocationMarker = mMap.addMarker(markerOptions);
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomBy(1));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
 
 
             if (client != null) {
 
                 LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
             }
-            SearchClinics();
+
         }
         catch (Exception ex)
         {
@@ -224,7 +235,7 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
         googlePlaceUrl.append("input=hiv%20testing%20center");
         googlePlaceUrl.append("&inputtype=textquery");
         googlePlaceUrl.append("&fields=photos,formatted_address,name,opening_hours,rating,geometry");
-        googlePlaceUrl.append("&locationbias=circle:20000@" + latitude+","+longitude);
+        googlePlaceUrl.append("&locationbias=circle:2000@" + latitude+","+longitude);
         googlePlaceUrl.append("&key="+"AIzaSyBxvyoKTGi17bYAO8CHaB-Js0ezd7BSwHk");
 
 
