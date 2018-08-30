@@ -98,17 +98,6 @@ public class SetEventActivity extends AppCompatActivity {
                         }
                     }
                 });
-        simpleCalendarView = findViewById(R.id.setEventCalendarView); // get the reference of CalendarView
-        simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-                dayOfMonth = day;
-                yearOfLife = year;
-                monthOfYear = month + 1;
-                // display the selected date by using a toast
-                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
-            }
-        });
 
         final CalendarPickerView calendar_view = (CalendarPickerView) findViewById(R.id.setEventCalendarView);
         //getting current

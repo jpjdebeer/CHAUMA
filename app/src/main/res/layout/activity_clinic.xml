@@ -14,10 +14,7 @@ android:id="@+id/eventActivityDrawerLayout">
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!--We are including the navigation actionbar we created-->
-    <include layout="@layout/navigation_actionbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 
     <Button
         android:id="@+id/B_Search"

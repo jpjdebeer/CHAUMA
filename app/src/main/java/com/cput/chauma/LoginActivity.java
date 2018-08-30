@@ -176,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
             openActivity("HomeActivity");
             //finish();
         }else if(item.getItemId() == R.id.loginButton){
-            Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Login", Toast.LENGTH_SHORT).show();
             openActivity("LoginActivity");
             //finish();
         }
