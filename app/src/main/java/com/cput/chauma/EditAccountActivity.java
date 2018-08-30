@@ -95,40 +95,43 @@ public class EditAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    /*
-                    String email = txtPeerEmailAddress.getText().toString();
-                   String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-                   if(email.matches(emailPattern)){
-                       peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
-                   }else{
-                       validated = false;
-                       Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
-                   }
-                     */
                     EditText txtNewUserName = findViewById(R.id.txtNewUserName);
                     EditText txtNewUserSurnamme =  findViewById(R.id.txtNewUserSurnamme);
-                    EditText txtNewUsername =  findViewById(R.id.txtNewUsername);
+                    EditText txtEmail =  findViewById(R.id.txtNewUsername);
                     EditText txtNewUserPassword =  findViewById(R.id.txtNewUserPassword);
                     EditText txtConfirmPassword =  findViewById(R.id.txtConfirmPassword);
 
                     if(txtNewUserPassword.getText().toString().equals(txtConfirmPassword.getText().toString())){
+
+                        boolean validated = true;
                         PeerEducatorAdd peerEducatorAdd = new PeerEducatorAdd();
                         String password = encrypt(txtNewUserPassword.getText().toString());
-                        peerEducatorAdd.EmailAddress = txtNewUsername.getText().toString();
+
+                        String email = txtEmail.getText().toString().trim();
+                        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                        if(email.matches(emailPattern)){
+                            peerEducatorAdd.EmailAddress = txtEmail.getText().toString().trim();
+                        }else{
+                            validated = false;
+                            Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
+                        }
+
                         peerEducatorAdd.Name = txtNewUserName.getText().toString();
                         peerEducatorAdd.Surname = txtNewUserSurnamme.getText().toString();
                         peerEducatorAdd.Password = password;
                         peerEducatorAdd.IsAuthorised = true;
 
-                        db
-                                .collection("PeerEducator")
-                                .document(peerEducatorAdd.EmailAddress)
-                                .set(peerEducatorAdd, SetOptions.merge());
-                        Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
+                        if(validated) {
+                            db
+                                    .collection("PeerEducator")
+                                    .document(peerEducatorAdd.EmailAddress)
+                                    .set(peerEducatorAdd, SetOptions.merge());
+                            Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
 
 
-                        SendEmail(txtNewUserName.getText().toString(), txtNewUserSurnamme.getText().toString(), txtNewUsername.getText().toString(), txtNewUserPassword.getText().toString(), "NEW");
+                            SendEmail(txtNewUserName.getText().toString(), txtNewUserSurnamme.getText().toString(), txtEmail.getText().toString(), txtNewUserPassword.getText().toString(), "NEW");
+                        }
                     }
                     else
                         Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
@@ -145,24 +148,40 @@ public class EditAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    EditText txtChangeUsername = findViewById(R.id.txtChangeUsername);
+                    boolean validated = true;
+
+                    EditText txtChangeEmail = findViewById(R.id.txtChangeUsername);
                     EditText txtChangeUserPassword =  findViewById(R.id.txtChangeUserPassword);
                     EditText txtConfirmChangePassword =  findViewById(R.id.txtConfirmChangePassword);
 
-                    if(txtChangeUserPassword.getText().toString().equals(txtConfirmChangePassword.getText().toString())){
+                    if(txtChangeUserPassword.getText().toString().equals(txtConfirmChangePassword.getText().toString())) {
                         PeerEducatorEdit peerEducatorEdit = new PeerEducatorEdit();
                         String password = encrypt(txtChangeUserPassword.getText().toString());
-                        peerEducatorEdit.EmailAddress = txtChangeUsername.getText().toString();
+
+                        String email = txtChangeEmail.getText().toString().trim();
+                        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                        if (email.matches(emailPattern)) {
+                            peerEducatorEdit.EmailAddress = txtChangeEmail.getText().toString().trim();
+                        } else {
+                            validated = false;
+                            Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
+                        }
+
+
                         peerEducatorEdit.Password = password;
 
-                        db
-                                .collection("PeerEducator")
-                                .document(peerEducatorEdit.EmailAddress)
-                                .set(peerEducatorEdit, SetOptions.merge());
-                        Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
+
+                        if (validated) {
+                            db
+                                    .collection("PeerEducator")
+                                    .document(peerEducatorEdit.EmailAddress)
+                                    .set(peerEducatorEdit, SetOptions.merge());
+                            Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
 
 
-                        SendEmail("", "", txtChangeUsername.getText().toString(), txtChangeUserPassword.getText().toString(), "UPDATE");
+                            SendEmail("", "", txtChangeEmail.getText().toString(), txtChangeUserPassword.getText().toString(), "UPDATE");
+                        }
                     }
                     else
                         Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
@@ -179,11 +198,24 @@ public class EditAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    EditText txtDeleteUser = findViewById(R.id.txtDeleteUser);
 
-                        PeerEducatorDelete peerEducatorDelete = new PeerEducatorDelete();
-                    peerEducatorDelete.EmailAddress = txtDeleteUser.getText().toString();
+                    boolean validated = true;
+                    EditText txtDeleteEmail = findViewById(R.id.txtDeleteUser);
 
+                    PeerEducatorDelete peerEducatorDelete = new PeerEducatorDelete();
+
+
+                    String email = txtDeleteEmail.getText().toString().trim();
+                    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                    if (email.matches(emailPattern)) {
+                        peerEducatorDelete.EmailAddress = txtDeleteEmail.getText().toString().trim();
+                    } else {
+                        validated = false;
+                        Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if (validated) {
                         db
                                 .collection("PeerEducator")
                                 .document(peerEducatorDelete.EmailAddress)
@@ -191,8 +223,9 @@ public class EditAccountActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Peer Educator successfully added", Toast.LENGTH_SHORT).show();
 
 
-                        SendEmail("", "", txtDeleteUser.getText().toString(), "", "DELETE");
+                        SendEmail("", "", txtDeleteEmail.getText().toString(), "", "DELETE");
 
+                    }
                 }
                 catch (Exception e){
                     Log.w("Failed Peer Counselor", "Error deleting document", e);
