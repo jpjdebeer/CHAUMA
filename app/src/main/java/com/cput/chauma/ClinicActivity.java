@@ -126,8 +126,6 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomBy(1));
 
-
-
         if(client!=null){
 
             LocationServices.FusedLocationApi.removeLocationUpdates(client,this);

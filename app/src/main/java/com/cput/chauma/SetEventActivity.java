@@ -98,6 +98,7 @@ public class SetEventActivity extends AppCompatActivity {
                         }
                     }
                 });
+
         simpleCalendarView = findViewById(R.id.setEventCalendarView); // get the reference of CalendarView
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
