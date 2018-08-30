@@ -108,7 +108,7 @@ public class GetInvolveActivity extends AppCompatActivity {
 
                             if (task.getResult() != null) {
                                 for (DocumentSnapshot document : task.getResult()) {
-                                    coordinatorEmail = document.getId().toString();
+                                    coordinatorEmail = document.getId().toString().trim();
                                 }
                             }
                         }

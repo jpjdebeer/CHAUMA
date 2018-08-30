@@ -107,11 +107,11 @@ public class EditAccountActivity extends AppCompatActivity {
                         PeerEducatorAdd peerEducatorAdd = new PeerEducatorAdd();
                         String password = encrypt(txtNewUserPassword.getText().toString());
 
-                        String email = txtEmail.getText().toString();
+                        String email = txtEmail.getText().toString().trim();
                         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                         if(email.matches(emailPattern)){
-                            peerEducatorAdd.EmailAddress = txtEmail.getText().toString();
+                            peerEducatorAdd.EmailAddress = txtEmail.getText().toString().trim();
                         }else{
                             validated = false;
                             Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
@@ -158,11 +158,11 @@ public class EditAccountActivity extends AppCompatActivity {
                         PeerEducatorEdit peerEducatorEdit = new PeerEducatorEdit();
                         String password = encrypt(txtChangeUserPassword.getText().toString());
 
-                        String email = txtChangeEmail.getText().toString();
+                        String email = txtChangeEmail.getText().toString().trim();
                         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                         if (email.matches(emailPattern)) {
-                            peerEducatorEdit.EmailAddress = txtChangeEmail.getText().toString();
+                            peerEducatorEdit.EmailAddress = txtChangeEmail.getText().toString().trim();
                         } else {
                             validated = false;
                             Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
@@ -205,11 +205,11 @@ public class EditAccountActivity extends AppCompatActivity {
                     PeerEducatorDelete peerEducatorDelete = new PeerEducatorDelete();
 
 
-                    String email = txtDeleteEmail.getText().toString();
+                    String email = txtDeleteEmail.getText().toString().trim();
                     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                     if (email.matches(emailPattern)) {
-                        peerEducatorDelete.EmailAddress = txtDeleteEmail.getText().toString();
+                        peerEducatorDelete.EmailAddress = txtDeleteEmail.getText().toString().trim();
                     } else {
                         validated = false;
                         Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
