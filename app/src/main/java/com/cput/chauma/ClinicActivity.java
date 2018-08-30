@@ -147,7 +147,6 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
 
-
             if (client != null) {
 
                 LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
@@ -158,7 +157,6 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
         {
             Toast.makeText(ClinicActivity.this,"Showing nearby Clinics", Toast.LENGTH_LONG).show();
             Log.w("Location", "Error Finding location", ex);
-
         }
     }
 

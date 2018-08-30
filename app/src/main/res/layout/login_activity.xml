@@ -98,7 +98,6 @@
                             android:textSize="20sp"
                             android:textColor="#fff"
                             android:background="@color/darkBlue"/>
-
                     </LinearLayout>
             </LinearLayout>
             </ScrollView>
