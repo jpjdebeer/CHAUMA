@@ -1,6 +1,7 @@
 package com.cput.chauma;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -8,11 +9,28 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Accept or decline a request to join an event set by the co-ordinator.
@@ -28,6 +46,12 @@ public class PeerEducatorActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle; //This is the button that will be used to show and hide Navigation bar
     private Toolbar toolbar;    //This instance is for the navigation toolbar
     private PeerEducator peerEducator;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    //ArrayList<EventInvitation> invitations;
+    EventInvitation invitation;
+    EditText invitationDeets;
+    EditText invitationResponse;
+    Boolean hasMessages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +81,7 @@ public class PeerEducatorActivity extends AppCompatActivity {
                         openActivity("HomeActivity");break;
                     case R.id.clinic:
                         Toast.makeText(getApplicationContext(), "Clinics", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicsActivity");break;
+                        openActivity("ClinicActivity");break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
                         openActivity("BrochureActivity");break;
@@ -78,6 +102,132 @@ public class PeerEducatorActivity extends AppCompatActivity {
             }
         });
 
+        invitationDeets = (EditText) findViewById(R.id.txtEventInvitationDetails);
+        invitationResponse = findViewById(R.id.txtInvitationResponse);
+        //invitations = new ArrayList<EventInvitation>();
+        CheckInvitations();
+
+        Button accept = findViewById(R.id.btnAccept); //to home page
+        Button decline = findViewById(R.id.btnDecline);
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+
+                    invitation.InvitationStatus = "Accepted";
+                    invitation.ResponseMessage = invitationResponse.getText().toString();
+
+                    db
+                            .collection("EventInvitation")
+                            .document(invitation.InvitationId)
+                            .set(invitation, SetOptions.merge());
+
+                    SendEmail(invitation, true);
+                    Toast.makeText(getApplicationContext(), "Thank you for accepting!", Toast.LENGTH_SHORT).show();
+                    CheckInvitations();
+                } catch (Exception e) {
+                    Log.w("Failed Peer Counselor", "Error adding document", e);
+                }
+            }
+        });
+
+        decline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+
+                    invitation.InvitationStatus = "Declined";
+                    invitation.ResponseMessage = invitationResponse.getText().toString();
+
+                    db
+                            .collection("EventInvitation")
+                            .document(invitation.InvitationId)
+                            .set(invitation, SetOptions.merge());
+
+                    SendEmail(invitation, true);
+                    Toast.makeText(getApplicationContext(), "No worries, you can join us next time", Toast.LENGTH_SHORT).show();
+                    CheckInvitations();
+                } catch (Exception e) {
+                    Log.w("Failed Peer Counselor", "Error adding document", e);
+                }
+            }
+        });
+
+    }
+
+    private void CheckInvitations() {
+        invitationDeets.setText("");
+        invitationResponse.setText("");
+        hasMessages = false;
+        db.collection("EventInvitation")
+                .whereEqualTo("InviteeEmail", peerEducator.EmailAddress)
+                .whereEqualTo("InvitationStatus", "Pending")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            if (task.getResult() == null)
+                                Toast.makeText(getApplicationContext(), "Unable to retrieve messages.", Toast.LENGTH_SHORT).show();
+
+                            if (task.getResult() != null) {
+                                for (DocumentSnapshot document : task.getResult()) {
+                                    ObjectMapper mapper = new ObjectMapper();
+                                    invitation = mapper.convertValue(document.getData(), EventInvitation.class);
+                                    invitation.InvitationId = document.getId().toString();
+                                    invitationDeets.setText("Name: " + invitation.EventDescription + ".  Date: " + invitation.EventDate);
+                                    hasMessages = true;
+                                    break;
+                                }
+
+
+                            }
+                            if(!hasMessages) {
+                                Toast.makeText(getApplicationContext(), "You currently have no invitations.", Toast.LENGTH_LONG).show();
+                                //openActivity("HomeActivity");
+                            }
+                        }
+
+                        else {
+                            Log.w("Search", "Error getting documents.", task.getException());
+                            if(!hasMessages) {
+                                Toast.makeText(getApplicationContext(), "You currently have no invitations.", Toast.LENGTH_LONG).show();
+                                //openActivity("HomeActivity");
+                            }
+                        }
+                    }
+                });
+    }
+
+    private void SendEmail(EventInvitation event, Boolean attending) {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        Log.i("Send email", "");
+
+        String[] TO = {event.EventCoordinatorEmail};
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/html");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "RE: Upcoming Event: " + event.EventName);
+        String attendance = attending? "I WILL be attending:" : "I am unfortunately unable to attend:";
+        emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(
+                "<h1>Hi " + event.EventCoordinator + "</h1>" +
+                        "<br/>"+attendance +
+                        "<br/>"+event.EventName+
+                        "<br/><br/>At: "+event.EventDate+
+                        "<br/><br/>Message: "+event.ResponseMessage+
+                        "<br/><br/><br/>Kind regards,<br/>" + peerEducator.Name
+
+        ));
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished with email...", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            //Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -107,8 +257,8 @@ public class PeerEducatorActivity extends AppCompatActivity {
                 startActivity(homeActivity);
                 //finish();
                 break;
-            case "ClinicsActivity":
-                Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
+            case "ClinicActivity":
+                Intent clinicsActivity = new Intent(this, ClinicActivity.class);
                 startActivity(clinicsActivity);
                 //finish();
                 break;

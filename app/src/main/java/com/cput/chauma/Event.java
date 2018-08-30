@@ -9,4 +9,5 @@ public class Event implements Serializable {
     public String EventDescription;
     public String EventDate;
     public String EventCoordinator;
+    public String EventCoordinatorEmail;
 }

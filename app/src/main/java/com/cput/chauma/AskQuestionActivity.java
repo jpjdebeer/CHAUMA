@@ -55,7 +55,7 @@ public class AskQuestionActivity extends AppCompatActivity {
                         openActivity("HomeActivity");break;
                     case R.id.clinic:
                         Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicsActivity");break;
+                        openActivity("ClinicActivity");break;
                     case R.id.brochure:
                         Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
                         openActivity("BrochureActivity");break;
@@ -105,8 +105,8 @@ public class AskQuestionActivity extends AppCompatActivity {
                 startActivity(homeActivity);
                 //finish();
                 break;
-            case "ClinicsActivity":
-                Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
+            case "ClinicActivity":
+                Intent clinicsActivity = new Intent(this, ClinicActivity.class);
                 startActivity(clinicsActivity);
                 //finish();
                 break;

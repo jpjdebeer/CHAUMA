@@ -31,6 +31,7 @@ import com.google.firebase.firestore.SetOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.timessquare.CalendarPickerView;
 
+import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,6 +55,8 @@ public class SetEventActivity extends AppCompatActivity {
     private ArrayList<PeerEducator> peerEducators;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<PeerEducator> peerEducators1;
+    CalendarView simpleCalendarView;
+    int dayOfMonth, monthOfYear, yearOfLife;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,43 +77,6 @@ public class SetEventActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);    //removing the title name(in this case is was the app name)
 
-        final NavigationView navigationView = findViewById(R.id.navigationViewLayout);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
-                        openActivity("HomeActivity");
-                        break;
-                    case R.id.clinic:
-                        Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
-                        openActivity("ClinicsActivity");
-                        break;
-                    case R.id.brochure:
-                        Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
-                        openActivity("BrochureActivity");
-                        break;
-                    case R.id.events:
-                        Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
-                        openActivity("EventActivity");
-                        break;
-                    case R.id.faq:
-                        Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
-                        openActivity("FrequentlyAskedQuestionActivity");
-                        break;
-                    case R.id.getInvolve:
-                        Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
-                        openActivity("GetInvolveActivity");
-                        break;
-                    case R.id.contacts:
-                        Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
-                        openActivity("ContactActivity");
-                        break;
-                }
-                return true;
-            }
-        });
         peerEducators = new ArrayList<PeerEducator>();
         db.collection("PeerEducator")
                 .whereEqualTo("IsAuthorised", true)
@@ -136,6 +102,17 @@ public class SetEventActivity extends AppCompatActivity {
                         }
                     }
                 });
+        simpleCalendarView = findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
+        simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+                dayOfMonth = day;
+                yearOfLife = year;
+                monthOfYear = month + 1;
+                // display the selected date by using a toast
+                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+            }
+        });
 
         final CalendarPickerView calendar_view = (CalendarPickerView) findViewById(R.id.setEventCalendarView);
         //getting current
@@ -185,6 +162,26 @@ public class SetEventActivity extends AppCompatActivity {
                                 .set(event, SetOptions.merge());
                     }
 
+                    for (PeerEducator peerEducator: peerEducators) {
+                        try {
+                            EventInvitation invitation = new EventInvitation();
+                            invitation.EventCoordinator = coordinator.Name;
+                            invitation.EventDate = event.EventDate;
+                            invitation.EventDescription = event.EventDescription;
+                            invitation.EventName = event.EventName;
+                            invitation.InvitationStatus = "Pending";
+                            invitation.InviteeEmail = peerEducator.EmailAddress;
+                            invitation.EventCoordinatorEmail = coordinator.EmailAddress;
+                            db
+                                    .collection("EventInvitation")
+                                    .document(event.EventDate + peerEducator.EmailAddress)
+                                    .set(invitation, SetOptions.merge());
+                        }
+                        catch(Exception ex){
+                            Log.w("Failed creating inv", "Failed when creating invitation for " + peerEducator.EmailAddress, ex);
+                        }
+                    }
+
                     SendEmail(event);
                     Toast.makeText(getApplicationContext(), "Event has been created!", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
@@ -193,6 +190,36 @@ public class SetEventActivity extends AppCompatActivity {
             }
         });
 
+        final NavigationView navigationView = findViewById(R.id.navigationViewLayout);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                        openActivity("HomeActivity");break;
+                    case R.id.clinic:
+                        Toast.makeText(getApplicationContext(), "Clinic", Toast.LENGTH_SHORT).show();
+                        openActivity("ClinicActivity");break;
+                    case R.id.brochure:
+                        Toast.makeText(getApplicationContext(), "Brochure", Toast.LENGTH_SHORT).show();
+                        openActivity("BrochureActivity");break;
+                    case R.id.events:
+                        Toast.makeText(getApplicationContext(), "Events", Toast.LENGTH_SHORT).show();
+                        openActivity("EventActivity");break;
+                    case R.id.faq:
+                        Toast.makeText(getApplicationContext(), "FAQ", Toast.LENGTH_SHORT).show();
+                        openActivity("FrequentlyAskedQuestionActivity");break;
+                    case R.id.getInvolve:
+                        Toast.makeText(getApplicationContext(), "GetInvolveActivity", Toast.LENGTH_SHORT).show();
+                        openActivity("GetInvolveActivity");break;
+                    case R.id.contacts:
+                        Toast.makeText(getApplicationContext(), "Contact", Toast.LENGTH_SHORT).show();
+                        openActivity("ContactActivity");break;
+                }
+                return true;
+            }
+        });
     }
 
     private void SendEmail(Event event) {
@@ -252,10 +279,9 @@ public class SetEventActivity extends AppCompatActivity {
             case "HomeActivity":
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
-                //finish();
-                break;
-            case "ClinicsActivity":
-                Intent clinicsActivity = new Intent(this, ClinicsActivity.class);
+                //finish();break;
+            case "ClinicActivity":
+                Intent clinicsActivity = new Intent(this, ClinicActivity.class);
                 startActivity(clinicsActivity);
                 //finish();
                 break;

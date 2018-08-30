@@ -10,6 +10,10 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.andriod.providers.gsf.permission.READ_GSERVICES" />
 
     <application
         android:allowBackup="true"
@@ -54,12 +58,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.cput.chauma.ClinicsActivity"
-            android:label="@string/title_activity_clinics"></activity>
+            android:name="com.cput.chauma.ClinicActivity"
+            android:label="@string/title_activity_clinic"></activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
