@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -55,6 +55,14 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+       // Button apply = findViewById(R.id.B_Search); //to home page
+      //  apply.setOnClickListener(new View.OnClickListener() {
+       //     @Override
+       //     public void onClick(View v) {
+       //         SearchClinics();
+      //      }
+       //     });
     }
 
     @Override
@@ -108,45 +116,59 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
     }
     @Override
     public void onLocationChanged(Location location) {
-        lastLocation = location;
+        try {
+            lastLocation = location;
 
-        if(currentLocationMarker != null){
+            if (currentLocationMarker != null) {
 
-            currentLocationMarker.remove();
+                currentLocationMarker.remove();
+            }
+
+            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+            latitude = latLng.latitude;
+            longitude = latLng.longitude;
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Current location");
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+            currentLocationMarker = mMap.addMarker(markerOptions);
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            mMap.animateCamera(CameraUpdateFactory.zoomBy(1));
+
+
+            if (client != null) {
+
+                LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
+            }
+            SearchClinics();
         }
+        catch (Exception ex)
+        {
+            Toast.makeText(ClinicActivity.this,"Showing nearby Clinics", Toast.LENGTH_LONG).show();
+            Log.w("Location", "Error Finding location", ex);
 
-        LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title("Current location");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-        currentLocationMarker= mMap.addMarker(markerOptions);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(1));
-
-
-
-        if(client!=null){
-
-            LocationServices.FusedLocationApi.removeLocationUpdates(client,this);
         }
     }
 
 
-    public void onClick(View v){
-        mMap.clear();
-        String clinic="clinic";
-        String url = getUrl(latitude, longitude,clinic);
-        Object dataTransfer[] = new Object[2];
-        dataTransfer[0]=mMap;
-        dataTransfer[1]=url;
+    public void SearchClinics() {
+         mMap.clear();
+        try {
+            String clinic = "clinic";
+            String url = getUrl(latitude, longitude, clinic);
+            Object dataTransfer[] = new Object[2];
+            dataTransfer[0] = mMap;
+            dataTransfer[1] = url;
 
-        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-        getNearbyPlacesData.execute(dataTransfer);
-        Toast.makeText(ClinicActivity.this,"Showing nearby Clinics", Toast.LENGTH_LONG).show();
+            GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+            getNearbyPlacesData.execute(dataTransfer);
+            Toast.makeText(ClinicActivity.this, "Showing nearby Clinics", Toast.LENGTH_LONG).show();
 
+        } catch (Exception ex) {
+            Toast.makeText(ClinicActivity.this, "Error showing clinics", Toast.LENGTH_LONG).show();
+            Log.w("Location", "Searching clinics", ex);
+        }
     }
 
     @Override
@@ -190,12 +212,21 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
 
     }
     private String getUrl(double latitude, double longitude, String nearbyPlace){
-        StringBuilder googlePlaceUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googlePlaceUrl.append("Location"+latitude+","+longitude);
+        StringBuilder googlePlaceUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?");
+        /*googlePlaceUrl.append("input");
+        googlePlaceUrl.append("inputtype");
+        googlePlaceUrl.append("");
+       googlePlaceUrl.append("Location"+latitude+","+longitude);
         googlePlaceUrl.append("&radius="+PROXIMITY_RADIUS);
         googlePlaceUrl.append("&type"+nearbyPlace);
-        googlePlaceUrl.append("&sensor=true");
+       googlePlaceUrl.append("&sensor=true");
+       googlePlaceUrl.append("&key="+"AIzaSyBxvyoKTGi17bYAO8CHaB-Js0ezd7BSwHk");*/
+        googlePlaceUrl.append("input=hiv%20testing%20center");
+        googlePlaceUrl.append("&inputtype=textquery");
+        googlePlaceUrl.append("&fields=photos,formatted_address,name,opening_hours,rating,geometry");
+        googlePlaceUrl.append("&locationbias=circle:20000@" + latitude+","+longitude);
         googlePlaceUrl.append("&key="+"AIzaSyBxvyoKTGi17bYAO8CHaB-Js0ezd7BSwHk");
+
 
         return googlePlaceUrl.toString();
     }

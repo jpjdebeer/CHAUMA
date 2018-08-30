@@ -29,12 +29,12 @@ public class DataParser {
             latitude=googlePlaceJson.getJSONObject("geometry").getJSONObject("location").getString("lat");
             longitude=googlePlaceJson.getJSONObject("geometry").getJSONObject("location").getString("lng");
 
-            reference=googlePlaceJson.getString("reference");
+            //reference=googlePlaceJson.getString("reference");
             googlePlaceMap.put("place_name", placeName);
-            googlePlaceMap.put("vicinity",vicinity);
+            //googlePlaceMap.put("vicinity",vicinity);
             googlePlaceMap.put("lat",latitude);
             googlePlaceMap.put("lng",longitude);
-            googlePlaceMap.put("reference",reference);
+            //googlePlaceMap.put("reference",reference);
 
             }catch (JSONException e) {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class DataParser {
 
         try {
             jsonObject = new JSONObject(jsonData);
-            jsonArray =jsonObject.getJSONArray("results");
+            jsonArray =jsonObject.getJSONArray("candidates");
         } catch (JSONException e) {
             e.printStackTrace();
         }
