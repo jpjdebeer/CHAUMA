@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -28,9 +29,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.squareup.timessquare.CalendarPickerView;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -133,23 +137,53 @@ public class SetEventActivity extends AppCompatActivity {
                     }
                 });
 
+        final CalendarPickerView calendar_view = (CalendarPickerView) findViewById(R.id.setEventCalendarView);
+        //getting current
+        Calendar nextYear = Calendar.getInstance();
+        nextYear.add(Calendar.YEAR, 2);
+        Date today = new Date();
+
+        //add two years to calendar from today's date
+        calendar_view.init(today, nextYear.getTime())
+                .inMode(CalendarPickerView.SelectionMode.RANGE)
+                .withSelectedDate(today);
+
         Button apply = findViewById(R.id.btnSetEvent); //to home page
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    CalendarView simpleCalendarView = findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
-                    long selectedDate = simpleCalendarView.getDate(); // get selected date in milliseconds
-                    Event event = new Event();
-                    event.EventCoordinator = coordinator.Name;
-                    event.EventDate = (new Date(selectedDate * 1000)).toString();
-                    event.EventDescription = "The description you provided";
-                    event.EventName = "The name of the event";
+                    TextView textViewVenue = (TextView)findViewById(R.id.txtVenue);
+                    TextView textViewEventDetails = (TextView)findViewById(R.id.txtEventDetails);
 
-                    db
-                            .collection("Events")
-                            .document(event.EventDate)
-                            .set(event, SetOptions.merge());
+                    String venue = textViewVenue.getText().toString();
+                    String eventDetails = textViewEventDetails.getText().toString();
+
+                    List<Date> multiDatesSelected = calendar_view.getSelectedDates(); //List selectedDate = calendar_view.getSelectedDates(); // get selected date in milliseconds
+                    Event event = new Event();
+
+                    if (multiDatesSelected.isEmpty()){
+                        //When a single date is selected
+                        String singleDateSelected = calendar_view.getSelectedDate().toString();
+                        event.EventCoordinator = coordinator.Name;
+                        event.EventDate = singleDateSelected; //(new Date(selectedDate * 1000)).toString();
+                        event.EventDescription = eventDetails;//"The description you provided";
+                        event.EventName = venue; //"The name of the event";
+                        db
+                                .collection("Events")
+                                .document(event.EventDate)
+                                .set(event, SetOptions.merge());
+                    }else{
+                        //When multiple dates are selected
+                        event.EventCoordinator = coordinator.Name;
+                        event.EventDate = multiDatesSelected.toString();//(new Date(selectedDate * 1000)).toString();
+                        event.EventDescription = eventDetails;//"The description you provided";
+                        event.EventName = venue; //"The name of the event";
+                        db
+                                .collection("Events")
+                                .document(event.EventDate)
+                                .set(event, SetOptions.merge());
+                    }
 
                     SendEmail(event);
                     Toast.makeText(getApplicationContext(), "Event has been created!", Toast.LENGTH_SHORT).show();
@@ -158,6 +192,7 @@ public class SetEventActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     private void SendEmail(Event event) {
