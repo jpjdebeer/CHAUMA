@@ -59,7 +59,7 @@
 
         <activity
             android:name="com.cput.chauma.ClinicActivity"
-            android:label="@string/title_activity_clinic"></activity>
+            android:label="@string/title_activity_clinic" />
     </application>
 
 </manifest>
