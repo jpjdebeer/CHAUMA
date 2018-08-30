@@ -16,8 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -28,10 +27,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.squareup.timessquare.CalendarPickerView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -50,6 +50,7 @@ public class SetEventActivity extends AppCompatActivity {
     private Coordinator coordinator;
     private ArrayList<PeerEducator> peerEducators;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ArrayList<PeerEducator> peerEducators1;
     CalendarView simpleCalendarView;
     int dayOfMonth, monthOfYear, yearOfLife;
 
@@ -97,7 +98,7 @@ public class SetEventActivity extends AppCompatActivity {
                         }
                     }
                 });
-        simpleCalendarView = findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
+        simpleCalendarView = findViewById(R.id.setEventCalendarView); // get the reference of CalendarView
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
@@ -109,24 +110,53 @@ public class SetEventActivity extends AppCompatActivity {
             }
         });
 
+        final CalendarPickerView calendar_view = (CalendarPickerView) findViewById(R.id.setEventCalendarView);
+        //getting current
+        Calendar nextYear = Calendar.getInstance();
+        nextYear.add(Calendar.YEAR, 2);
+        Date today = new Date();
+
+        //add two years to calendar from today's date
+        calendar_view.init(today, nextYear.getTime())
+                .inMode(CalendarPickerView.SelectionMode.RANGE)
+                .withSelectedDate(today);
+
         Button apply = findViewById(R.id.btnSetEvent); //to home page
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    long selectedDate = simpleCalendarView.getDate(); // get selected date in milliseconds
-                    Event event = new Event();
-                    event.EventCoordinator = coordinator.Name;
-                    event.EventDescription = "The description you provided";
-                    event.EventName = "The name of the event";
-                    SimpleDateFormat outputFormatter = new SimpleDateFormat("yyyy-mm-dd");
-                    event.EventDate = yearOfLife + "-" + monthOfYear + "-" + dayOfMonth;
-                    event.EventCoordinatorEmail = coordinator.EmailAddress;
+                    TextView textViewVenue = (TextView)findViewById(R.id.txtVenue);
+                    TextView textViewEventDetails = (TextView)findViewById(R.id.txtEventDetails);
 
-                    db
-                            .collection("Events")
-                            .document(event.EventDate)
-                            .set(event, SetOptions.merge());
+                    String venue = textViewVenue.getText().toString();
+                    String eventDetails = textViewEventDetails.getText().toString();
+
+                    List<Date> multiDatesSelected = calendar_view.getSelectedDates(); //List selectedDate = calendar_view.getSelectedDates(); // get selected date in milliseconds
+                    Event event = new Event();
+
+                    if (multiDatesSelected.isEmpty()){
+                        //When a single date is selected
+                        String singleDateSelected = calendar_view.getSelectedDate().toString();
+                        event.EventCoordinator = coordinator.Name;
+                        event.EventDate = singleDateSelected; //(new Date(selectedDate * 1000)).toString();
+                        event.EventDescription = eventDetails;//"The description you provided";
+                        event.EventName = venue; //"The name of the event";
+                        db
+                                .collection("Events")
+                                .document(event.EventDate)
+                                .set(event, SetOptions.merge());
+                    }else{
+                        //When multiple dates are selected
+                        event.EventCoordinator = coordinator.Name;
+                        event.EventDate = multiDatesSelected.toString();//(new Date(selectedDate * 1000)).toString();
+                        event.EventDescription = eventDetails;//"The description you provided";
+                        event.EventName = venue; //"The name of the event";
+                        db
+                                .collection("Events")
+                                .document(event.EventDate)
+                                .set(event, SetOptions.merge());
+                    }
 
                     for (PeerEducator peerEducator: peerEducators) {
                         try {
@@ -231,11 +261,11 @@ public class SetEventActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
             openActivity("HomeActivity");
-            finish();
+            //finish();
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
             openActivity("LoginActivity");
-            finish();
+            //finish();
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
@@ -245,35 +275,42 @@ public class SetEventActivity extends AppCompatActivity {
             case "HomeActivity":
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
-                finish();break;
+                //finish();break;
             case "ClinicActivity":
                 Intent clinicsActivity = new Intent(this, ClinicActivity.class);
                 startActivity(clinicsActivity);
-                finish();break;
+                //finish();
+                break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(this, BrochureActivity.class);
                 startActivity(brochureActivity);
-                finish();break;
+                //finish();
+                break;
             case "EventActivity":
                 Intent eventActivity = new Intent(this, EventActivity.class);
                 startActivity(eventActivity);
-                finish();break;
+                //finish();
+                break;
             case "FrequentlyAskedQuestionActivity":
                 Intent faqActivity = new Intent(this, FrequentlyAskedQuestionActivity.class);
                 startActivity(faqActivity);
-                finish();break;
+                //finish();
+                break;
             case "GetInvolveActivity":
                 Intent getInvolveActivity = new Intent(this, GetInvolveActivity.class);
                 startActivity(getInvolveActivity);
-                finish();break;
+                //finish();
+                break;
             case "ContactActivity":
                 Intent contactActivity = new Intent(this, ContactActivity.class);
                 startActivity(contactActivity);
-                finish();break;
+                //finish();
+                break;
             case "LoginActivity":
                 Intent loginActivity = new Intent(this, LoginActivity.class);
                 startActivity(loginActivity);
-                finish();break;
+                //finish();
+                break;
         }
     }
 }
