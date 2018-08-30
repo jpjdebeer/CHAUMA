@@ -145,7 +145,7 @@ public class ClinicActivity extends FragmentActivity implements OnMapReadyCallba
             currentLocationMarker = mMap.addMarker(markerOptions);
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
 
 
             if (client != null) {
