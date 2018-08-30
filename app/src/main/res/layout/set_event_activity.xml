@@ -18,6 +18,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <EditText
+            android:id="@+id/Event_Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Date of Event"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/Event_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Time of event"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/Event_Description"
+            android:layout_width="match_parent"
+            android:layout_height="297dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Describe event" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,16 +49,17 @@
             android:textAlignment="center"
             android:text="SET EVENTS ACTIVITY"/>
 
-        <CalendarView
-            android:id="@+id/simpleCalendarView"
-            android:layout_width="fill_parent"
-            android:layout_height="442dp" />
-
         <Button
             android:id="@+id/btnSetEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ADD" />
+
+        <Button
+            android:id="@+id/edit_Event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit" />
     </LinearLayout>
 
     <!--Adding the side navigation view with the list of toolbar_options items-->

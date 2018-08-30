@@ -99,15 +99,6 @@
                             android:textColor="#fff"
                             android:background="@color/darkBlue"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:paddingTop="5dp"
-                            android:text="@string/administrative_privileges"
-                            android:textSize="12sp"
-                            tools:textColor="@color/red"
-                            android:visibility="visible"/>
                     </LinearLayout>
             </LinearLayout>
             </ScrollView>

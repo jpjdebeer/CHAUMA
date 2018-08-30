@@ -1,9 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
+
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.cput.chauma.HomeActivity"
+android:id="@+id/eventActivityDrawerLayout">
+
+<!--All content/design will be inside this layout-->
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--We are including the navigation actionbar we created-->
+    <include layout="@layout/navigation_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/B_Search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/map"
+        android:layout_alignParentStart="true"
+        android:onClick="onClick"
+        android:text="Closest HIV Testing Clinic"
+        android:layout_alignParentLeft="true" />
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        tools:context=".ClinicActivity"
+        android:layout_alignParentLeft="true" />
+
+
+    <TextView
+        android:id="@+id/UP_Events"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="TextView" />
+
+</LinearLayout>
+
+<!--Adding the side navigation view with the list of toolbar_options items-->
+<android.support.design.widget.NavigationView
+    android:id="@+id/navigationViewLayout"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".ClinicActivity" />
+    app:menu="@menu/navigation_menu"
+    app:headerLayout="@layout/navigation_header"
+    android:layout_gravity="start">
+
+</android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

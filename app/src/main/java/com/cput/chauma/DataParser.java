@@ -34,7 +34,8 @@ public class DataParser {
             //googlePlaceMap.put("vicinity",vicinity);
             googlePlaceMap.put("lat",latitude);
             googlePlaceMap.put("lng",longitude);
-            //googlePlaceMap.put("reference",reference);
+            googlePlaceMap.put("reference",placeName);
+
 
             }catch (JSONException e) {
             e.printStackTrace();

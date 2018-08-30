@@ -85,7 +85,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Get access to clinics that are the closest to your current location" />
+                                   android:text="Find the closest clinic to your location" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
@@ -198,7 +198,7 @@
                                    android:layout_marginTop="5dp"
                                    android:paddingLeft="5dp"
                                    android:paddingRight="2dp"
-                                   android:text="Get a calender view of our coming events and more details" />
+                                   android:text="Upcoming Events" />
                            </LinearLayout>
 
                        </android.support.v7.widget.CardView>
