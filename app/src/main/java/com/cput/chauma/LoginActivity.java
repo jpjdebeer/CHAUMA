@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                     final String username = txtUsername.getText().toString();
 
                     db.collection("PeerEducator")
-                            .whereEqualTo("EmailAddress", username)
+                            .whereEqualTo("EmailAddress".trim(), username)
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                                     final Task<QuerySnapshot> peerEducatorTask = task;
                                     if (task.isSuccessful()) {
                                         db.collection("Coordinator")
-                                                .whereEqualTo("EmailAddress", username)
+                                                .whereEqualTo("EmailAddress".trim(), username)
                                                 .get()
                                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                     @Override
