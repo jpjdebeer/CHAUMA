@@ -2,39 +2,92 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setEventActivityDrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cput.chauma.HomeActivity"
-    android:id="@+id/setEventActivityDrawerLayout">
+    tools:context="com.cput.chauma.HomeActivity">
 
     <!--All content/design will be inside this layout-->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <!--We are including the navigation actionbar we created-->
-        <include layout="@layout/navigation_actionbar"
+        <include
+            layout="@layout/navigation_actionbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="SET EVENTS ACTIVITY"/>
-
-        <CalendarView
-            android:id="@+id/simpleCalendarView"
-            android:layout_width="fill_parent"
-            android:layout_height="442dp" />
-
-        <Button
-            android:id="@+id/btnSetEvent"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ADD" />
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/txtVenue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:background="@color/seaBlue"
+                android:gravity="top|left"
+                android:hint="Venue"
+                android:padding="10dp"
+                android:inputType="text"
+                android:scrollHorizontally="false"
+                android:scrollbars="vertical"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/txtEventDetails"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="top|center"
+                android:layout_marginTop="10dp"
+                android:background="@color/seaBlue"
+                android:gravity="top|left"
+                android:hint="Details about the event"
+                android:inputType="text|textMultiLine"
+                android:padding="10dp"
+                android:scrollHorizontally="false"
+                android:scrollbars="vertical"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="290dp">
+
+            <com.squareup.timessquare.CalendarPickerView
+                android:id="@+id/setEventCalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnSetEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/darkBlue"
+                android:text="ADD EVENT"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <!--Adding the side navigation view with the list of toolbar_options items-->
@@ -42,9 +95,9 @@
         android:id="@+id/navigationViewLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start"
         app:headerLayout="@layout/navigation_header"
-        android:layout_gravity="start">
+        app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>
 
