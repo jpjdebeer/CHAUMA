@@ -2,12 +2,12 @@ package com.cput.chauma;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.shaun.chauma.R;
@@ -94,6 +95,17 @@ public class EditAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    /*
+                    String email = txtPeerEmailAddress.getText().toString();
+                   String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                   if(email.matches(emailPattern)){
+                       peerEducator.EmailAddress = txtPeerEmailAddress.getText().toString();
+                   }else{
+                       validated = false;
+                       Toast.makeText(getApplicationContext(), "Your email is incorrect", Toast.LENGTH_SHORT).show();
+                   }
+                     */
                     EditText txtNewUserName = findViewById(R.id.txtNewUserName);
                     EditText txtNewUserSurnamme =  findViewById(R.id.txtNewUserSurnamme);
                     EditText txtNewUsername =  findViewById(R.id.txtNewUsername);
@@ -238,7 +250,7 @@ public class EditAccountActivity extends AppCompatActivity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
+            //finish();
             Log.i("Finished with email...", "");
         } catch (android.content.ActivityNotFoundException ex) {
             //Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
@@ -256,11 +268,11 @@ public class EditAccountActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.homeButton){
             Toast.makeText(getApplicationContext(), "Go back Home", Toast.LENGTH_SHORT).show();
             openActivity("HomeActivity");
-            finish();
+            //finish();
         }else if(item.getItemId() == R.id.loginButton){
             Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
             openActivity("LoginActivity");
-            finish();
+            //finish();
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
@@ -270,35 +282,43 @@ public class EditAccountActivity extends AppCompatActivity {
             case "HomeActivity":
                 Intent homeActivity = new Intent(this, HomeActivity.class);
                 startActivity(homeActivity);
-                finish();break;
+                //finish();
+                break;
             case "ClinicActivity":
                 Intent clinicsActivity = new Intent(this, ClinicActivity.class);
                 startActivity(clinicsActivity);
-                finish();break;
+                //finish();
+                break;
             case "BrochureActivity":
                 Intent brochureActivity = new Intent(this, BrochureActivity.class);
                 startActivity(brochureActivity);
-                finish();break;
+                //finish();
+                break;
             case "EventActivity":
                 Intent eventActivity = new Intent(this, EventActivity.class);
                 startActivity(eventActivity);
-                finish();break;
+                //finish();
+                break;
             case "FrequentlyAskedQuestionActivity":
                 Intent faqActivity = new Intent(this, FrequentlyAskedQuestionActivity.class);
                 startActivity(faqActivity);
-                finish();break;
+                //finish();
+                break;
             case "GetInvolveActivity":
                 Intent getInvolveActivity = new Intent(this, GetInvolveActivity.class);
                 startActivity(getInvolveActivity);
-                finish();break;
+                //finish();
+                break;
             case "ContactActivity":
                 Intent contactActivity = new Intent(this, ContactActivity.class);
                 startActivity(contactActivity);
-                finish();break;
+                //finish();
+                break;
             case "LoginActivity":
                 Intent loginActivity = new Intent(this, LoginActivity.class);
                 startActivity(loginActivity);
-                finish();break;
+                //finish();
+                break;
         }
     }
 }
