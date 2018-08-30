@@ -16,8 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +29,6 @@ import com.google.firebase.firestore.SetOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.timessquare.CalendarPickerView;
 
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -102,7 +98,7 @@ public class SetEventActivity extends AppCompatActivity {
                         }
                     }
                 });
-        simpleCalendarView = findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
+        simpleCalendarView = findViewById(R.id.setEventCalendarView); // get the reference of CalendarView
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
